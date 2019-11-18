@@ -1,0 +1,285 @@
+2019-11-14 00:28:01,816 DEBUG 26244   ---  [MainThread] - [GET] -> [/cms/theme/1] from:127.0.0.1 costs:43.730 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 00:28:02,172 ERROR 26244   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/theme.py", line 21, in get_all
+    return jsonify(models)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Theme' object has no attribute 'topic_img'
+
+2019-11-14 00:28:02,182 DEBUG 26244   ---  [MainThread] - [GET] -> [/cms/theme/all] from:127.0.0.1 costs:47.860 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 00:28:04,990 DEBUG 26244   ---  [MainThread] - [PUT] -> [/cms/theme/2] from:127.0.0.1 costs:2765.620 ms data:{
+	param: {}, 
+	body: {'description': '美味水果世界', 'head_img_id': 1, 'name': '水果世界吧', 'topic_img_id': 1}
+} 
+2019-11-14 00:28:05,077 DEBUG 26244   ---  [MainThread] - [PUT] -> [/cms/theme/hide/2] from:127.0.0.1 costs:30.850 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 00:28:05,158 DEBUG 26244   ---  [MainThread] - [PUT] -> [/cms/theme/show/2] from:127.0.0.1 costs:20.130 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 00:28:05,257 DEBUG 26244   ---  [MainThread] - [DELETE] -> [/cms/theme/2] from:127.0.0.1 costs:29.190 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 00:28:27,838 DEBUG 26274   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:43.440 ms data:{
+	param: {}, 
+	body: {'category_id': 1, 'img_id': 2, 'name': '芹菜1', 'price': '1.2', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 1}
+} 
+2019-11-14 00:28:54,381 DEBUG 26306   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:9.720 ms data:{
+	param: {}, 
+	body: {'category_id': 1, 'img_id': 2, 'name': '芹菜1', 'price': '1.2', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 0}
+} 
+2019-11-14 00:29:09,254 DEBUG 26333   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:47.080 ms data:{
+	param: {}, 
+	body: {'category_id': 1, 'img_id': 2, 'name': '芹菜1', 'price': '1.2', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-14 00:29:22,226 DEBUG 26360   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:9.940 ms data:{
+	param: {}, 
+	body: {'category_id': 1, 'img_id': 2, 'name': '芹菜1', 'price': '1.2', 'stock': -1, 'summary': '芹菜好吃吗'}
+} 
+2019-11-14 00:29:33,996 DEBUG 26387   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:53.930 ms data:{
+	param: {}, 
+	body: {'category_id': 1, 'img_id': 2, 'name': '芹菜1', 'price': '1.2', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-14 00:37:13,537 DEBUG 26486   ---  [MainThread] - [PUT] -> [/cms/product/hide/2] from:127.0.0.1 costs:35.400 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 00:37:13,880 DEBUG 26486   ---  [MainThread] - [PUT] -> [/cms/product/show/2] from:127.0.0.1 costs:36.940 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 00:37:13,988 DEBUG 26486   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:44.710 ms data:{
+	param: {}, 
+	body: {'category_id': 1, 'img_id': 2, 'name': '芹菜1', 'price': '1.2', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-14 00:37:37,610 DEBUG 26515   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:46.400 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 00:37:37,642 ERROR 26515   ---  [MainThread] - Exception on /cms/product/show/3 [PUT]
+Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/libs/lin_flask.py", line 24, in make_response
+    return super(LinFlask, self).make_response(rv)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2019-11-14 00:37:37,654 ERROR 26515   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/libs/lin_flask.py", line 24, in make_response
+    return super(LinFlask, self).make_response(rv)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+
+2019-11-14 00:37:37,657 DEBUG 26515   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:34.450 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 00:37:38,043 DEBUG 26515   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:31.280 ms data:{
+	param: {}, 
+	body: {'category_id': 1, 'img_id': 2, 'name': '芹菜1', 'price': '1.2', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-14 00:38:14,726 DEBUG 26551   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:46.460 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 00:38:14,771 DEBUG 26551   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:32.950 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 00:38:14,830 DEBUG 26551   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:38.490 ms data:{
+	param: {}, 
+	body: {'category_id': 1, 'img_id': 2, 'name': '芹菜1', 'price': '1.2', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-14 10:27:03,360 DEBUG 27178   ---  [MainThread] - [GET] -> [/cms/category/all] from:127.0.0.1 costs:51.950 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 10:58:13,081 DEBUG 27791   ---  [MainThread] - [GET] -> [/cms/category/1] from:127.0.0.1 costs:53.720 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 10:58:13,457 DEBUG 27791   ---  [MainThread] - [GET] -> [/cms/category/all] from:127.0.0.1 costs:10.680 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 10:58:13,530 DEBUG 27791   ---  [MainThread] - [POST] -> [/cms/category] from:127.0.0.1 costs:47.210 ms data:{
+	param: {}, 
+	body: {'description': '很多水果', 'img_id': 1, 'name': '果味'}
+} 
+2019-11-14 10:58:28,692 ERROR 27823   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/category.py", line 14, in get
+    return jsonify(model)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Category' object has no attribute 'img'
+
+2019-11-14 10:58:28,697 DEBUG 27823   ---  [MainThread] - [GET] -> [/cms/category/1] from:127.0.0.1 costs:44.840 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 10:58:29,003 ERROR 27823   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/category.py", line 20, in get_all
+    return jsonify(models)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Category' object has no attribute 'img'
+
+2019-11-14 10:58:29,012 DEBUG 27823   ---  [MainThread] - [GET] -> [/cms/category/all] from:127.0.0.1 costs:23.220 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 10:58:29,073 DEBUG 27823   ---  [MainThread] - [POST] -> [/cms/category] from:127.0.0.1 costs:21.900 ms data:{
+	param: {}, 
+	body: {'description': '很多水果', 'img_id': 1, 'name': '果味'}
+} 
+2019-11-14 10:59:02,622 ERROR 27857   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/category.py", line 14, in get
+    return jsonify(model)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Category' object has no attribute 'img'
+
+2019-11-14 10:59:02,626 DEBUG 27857   ---  [MainThread] - [GET] -> [/cms/category/1] from:127.0.0.1 costs:26.300 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 10:59:02,752 ERROR 27857   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/category.py", line 20, in get_all
+    return jsonify(models)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Category' object has no attribute 'img'
+
+2019-11-14 10:59:02,760 DEBUG 27857   ---  [MainThread] - [GET] -> [/cms/category/all] from:127.0.0.1 costs:8.260 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 10:59:02,804 DEBUG 27857   ---  [MainThread] - [POST] -> [/cms/category] from:127.0.0.1 costs:26.750 ms data:{
+	param: {}, 
+	body: {'description': '蔬菜世界', 'img_id': 2, 'name': '蔬菜'}
+} 
+2019-11-14 10:59:55,025 DEBUG 27891   ---  [MainThread] - [PUT] -> [/cms/category/1] from:127.0.0.1 costs:44.050 ms data:{
+	param: {}, 
+	body: {'description': '蔬菜世界', 'img_id': 2, 'name': '蔬菜'}
+} 
+2019-11-14 11:01:13,042 DEBUG 27928   ---  [MainThread] - [PUT] -> [/cms/category/1] from:127.0.0.1 costs:42.000 ms data:{
+	param: {}, 
+	body: {'description': '炒货天堂', 'img_id': 3, 'name': '炒货'}
+} 
+2019-11-14 11:03:05,652 DEBUG 27964   ---  [MainThread] - [PUT] -> [/cms/category/hide/1] from:127.0.0.1 costs:42.380 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 11:03:48,578 DEBUG 27996   ---  [MainThread] - [PUT] -> [/cms/category/hide/1] from:127.0.0.1 costs:35.310 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 11:03:48,883 DEBUG 27996   ---  [MainThread] - [PUT] -> [/cms/category/show/1] from:127.0.0.1 costs:34.610 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-14 11:04:43,023 DEBUG 28030   ---  [MainThread] - [DELETE] -> [/cms/category/1] from:127.0.0.1 costs:43.900 ms data:{
+	param: {}, 
+	body: {}
+} 

@@ -1,5 +1,5 @@
 [[source]]
-url = "https://pypi.python.org/simple"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
 verify_ssl = true
 name = "pypi"
 
@@ -16,6 +16,8 @@ Lin-CMS = "==0.2.0b2"
 
 [dev-packages]
 pytest = "*"
+flask-migrate = "*"
+flask-script = "*"
 
 [requires]
 python_version = "3.6"

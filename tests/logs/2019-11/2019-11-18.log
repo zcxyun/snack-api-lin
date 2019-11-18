@@ -1,0 +1,328 @@
+2019-11-18 00:19:54,998 DEBUG 4011   ---  [MainThread] - [GET] -> [/cms/theme/3] from:127.0.0.1 costs:127.980 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:19:55,511 ERROR 4011   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/theme.py", line 21, in get_all
+    models = Theme.get_all_models_with_img(err_msg='相关主题不存在')
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/models/base.py", line 99, in get_all_models_with_img
+    cls.img_id == File.id,
+AttributeError: type object 'Theme' has no attribute 'img_id'
+
+2019-11-18 00:19:55,514 DEBUG 4011   ---  [MainThread] - [GET] -> [/cms/theme/all] from:127.0.0.1 costs:12.840 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:19:55,591 DEBUG 4011   ---  [MainThread] - [GET] -> [/cms/theme/paginate] from:127.0.0.1 costs:39.720 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:19:55,688 DEBUG 4011   ---  [MainThread] - [POST] -> [/cms/theme] from:127.0.0.1 costs:83.400 ms data:{
+	param: {}, 
+	body: {'head_img_id': 2, 'name': '炒货天堂', 'summary': '炒货无敌', 'topic_img_id': 2}
+} 
+2019-11-18 00:19:55,723 DEBUG 4011   ---  [MainThread] - [PUT] -> [/cms/theme/2] from:127.0.0.1 costs:14.990 ms data:{
+	param: {}, 
+	body: {'head_img_id': 1, 'name': '水果世界', 'summary': '美味水果世界', 'topic_img_id': 1}
+} 
+2019-11-18 00:19:55,803 DEBUG 4011   ---  [MainThread] - [PUT] -> [/cms/theme/hide/2] from:127.0.0.1 costs:15.600 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:19:55,887 DEBUG 4011   ---  [MainThread] - [PUT] -> [/cms/theme/show/2] from:127.0.0.1 costs:26.150 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:24:38,287 DEBUG 4165   ---  [MainThread] - [GET] -> [/cms/theme/3] from:127.0.0.1 costs:37.550 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:24:38,706 DEBUG 4165   ---  [MainThread] - [GET] -> [/cms/theme/all] from:127.0.0.1 costs:61.710 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:24:38,809 DEBUG 4165   ---  [MainThread] - [GET] -> [/cms/theme/paginate] from:127.0.0.1 costs:77.420 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:24:38,882 DEBUG 4165   ---  [MainThread] - [POST] -> [/cms/theme] from:127.0.0.1 costs:50.330 ms data:{
+	param: {}, 
+	body: {'head_img_id': 2, 'name': '炒货天堂', 'summary': '炒货无敌', 'topic_img_id': 2}
+} 
+2019-11-18 00:24:38,968 DEBUG 4165   ---  [MainThread] - [PUT] -> [/cms/theme/2] from:127.0.0.1 costs:45.720 ms data:{
+	param: {}, 
+	body: {'head_img_id': 1, 'name': '水果世界', 'summary': '美味水果世界', 'topic_img_id': 1}
+} 
+2019-11-18 00:24:39,051 DEBUG 4165   ---  [MainThread] - [PUT] -> [/cms/theme/hide/2] from:127.0.0.1 costs:35.630 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:24:39,210 DEBUG 4165   ---  [MainThread] - [PUT] -> [/cms/theme/show/2] from:127.0.0.1 costs:53.820 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:27:29,990 DEBUG 4234   ---  [MainThread] - [GET] -> [/cms/theme/3] from:127.0.0.1 costs:34.200 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:27:30,395 DEBUG 4234   ---  [MainThread] - [GET] -> [/cms/theme/all] from:127.0.0.1 costs:66.080 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:27:30,475 DEBUG 4234   ---  [MainThread] - [GET] -> [/cms/theme/paginate] from:127.0.0.1 costs:65.750 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:27:30,551 DEBUG 4234   ---  [MainThread] - [POST] -> [/cms/theme] from:127.0.0.1 costs:41.160 ms data:{
+	param: {}, 
+	body: {'head_img_id': 2, 'name': '炒货天堂', 'summary': '炒货无敌', 'topic_img_id': 2}
+} 
+2019-11-18 00:27:30,681 DEBUG 4234   ---  [MainThread] - [PUT] -> [/cms/theme/2] from:127.0.0.1 costs:49.460 ms data:{
+	param: {}, 
+	body: {'head_img_id': 1, 'name': '水果世界', 'summary': '美味水果世界', 'topic_img_id': 1}
+} 
+2019-11-18 00:27:30,749 DEBUG 4234   ---  [MainThread] - [PUT] -> [/cms/theme/hide/2] from:127.0.0.1 costs:36.540 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:27:30,856 DEBUG 4234   ---  [MainThread] - [PUT] -> [/cms/theme/show/2] from:127.0.0.1 costs:37.030 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:27:52,557 DEBUG 4285   ---  [MainThread] - [GET] -> [/cms/category/1] from:127.0.0.1 costs:37.940 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:27:52,923 DEBUG 4285   ---  [MainThread] - [GET] -> [/cms/category/all] from:127.0.0.1 costs:44.860 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:27:53,012 DEBUG 4285   ---  [MainThread] - [GET] -> [/cms/category/paginate] from:127.0.0.1 costs:63.920 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:27:53,042 DEBUG 4285   ---  [MainThread] - [POST] -> [/cms/category] from:127.0.0.1 costs:15.230 ms data:{
+	param: {}, 
+	body: {'description': '蔬菜世界', 'img_id': 2, 'name': '蔬菜'}
+} 
+2019-11-18 00:27:53,130 DEBUG 4285   ---  [MainThread] - [PUT] -> [/cms/category/1] from:127.0.0.1 costs:15.260 ms data:{
+	param: {}, 
+	body: {'description': '炒货天堂', 'img_id': 3, 'name': '炒货'}
+} 
+2019-11-18 00:27:53,206 DEBUG 4285   ---  [MainThread] - [PUT] -> [/cms/category/hide/1] from:127.0.0.1 costs:33.580 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:27:53,334 DEBUG 4285   ---  [MainThread] - [PUT] -> [/cms/category/show/1] from:127.0.0.1 costs:58.890 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:38:07,098 DEBUG 5631   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:38.830 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:38:07,406 DEBUG 5631   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:42.050 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:38:07,475 DEBUG 5631   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:34.980 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 00:38:07,568 DEBUG 5631   ---  [MainThread] - [PUT] -> [/cms/product/1] from:127.0.0.1 costs:45.800 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 00:39:10,117 DEBUG 5686   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:37.040 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:39:21,929 DEBUG 5686   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:11515.960 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:39:28,012 DEBUG 5686   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:6058.310 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 00:39:28,119 DEBUG 5686   ---  [MainThread] - [PUT] -> [/cms/product/1] from:127.0.0.1 costs:50.570 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 00:59:03,387 DEBUG 6354   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:86.530 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:59:03,771 ERROR 6354   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 38, in get_paginate
+    models = Product.get_paginate_models(start, count, q, soft=False, err_msg='相关产品不存在')
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/models/product.py", line 77, in get_paginate_models
+    models = cls._combine_data(res)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/models/product.py", line 113, in _combine_data
+    model = cls._combine_single_data(*item)
+TypeError: _combine_single_data() missing 1 required positional argument: 'attr'
+
+2019-11-18 00:59:03,774 DEBUG 6354   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:51.110 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 00:59:03,852 DEBUG 6354   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:54.570 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 00:59:03,937 DEBUG 6354   ---  [MainThread] - [PUT] -> [/cms/product/1] from:127.0.0.1 costs:58.980 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 01:07:58,381 DEBUG 6553   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:68.050 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 01:07:58,478 ERROR 6553   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 38, in get_paginate
+    models = Product.get_paginate_models(start, count, q, soft=False, err_msg='相关产品不存在')
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/models/product.py", line 77, in get_paginate_models
+    models = cls._combine_data(res)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/models/product.py", line 113, in _combine_data
+    model = cls._combine_single_data(*item)
+TypeError: _combine_single_data() missing 1 required positional argument: 'attr'
+
+2019-11-18 01:07:58,481 DEBUG 6553   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:63.300 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 01:07:58,828 DEBUG 6553   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:26.390 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 01:07:58,906 DEBUG 6553   ---  [MainThread] - [PUT] -> [/cms/product/1] from:127.0.0.1 costs:50.250 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 01:13:37,121 DEBUG 6597   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:33.140 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 01:13:37,205 ERROR 6597   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 38, in get_paginate
+    models = Product.get_paginate_models(start, count, q, soft=False, err_msg='相关产品不存在')
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/models/product.py", line 77, in get_paginate_models
+    models = cls._combine_data(res)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/models/product.py", line 114, in _combine_data
+    model = cls._combine_single_data(*item)
+TypeError: _combine_single_data() missing 1 required positional argument: 'attr'
+
+2019-11-18 01:13:37,212 DEBUG 6597   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:71.860 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 01:13:37,614 DEBUG 6597   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:37.740 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 01:13:37,734 DEBUG 6597   ---  [MainThread] - [PUT] -> [/cms/product/1] from:127.0.0.1 costs:77.600 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 01:27:49,025 ERROR 6868   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 14, in get
+    model = Product.get_model(pid, err_msg='相关产品未添加或已隐藏')
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/models/product.py", line 56, in get_model
+    model = cls._combine_single_data(*res)
+TypeError: _combine_single_data() missing 3 required positional arguments: 'category', 'theme', and 'path'
+
+2019-11-18 01:27:49,030 DEBUG 6868   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:2244.630 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 01:27:55,050 DEBUG 6868   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:5666.790 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 01:27:55,206 DEBUG 6868   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:111.320 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 01:27:55,371 DEBUG 6868   ---  [MainThread] - [PUT] -> [/cms/product/1] from:127.0.0.1 costs:40.130 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 01:28:18,336 ERROR 6932   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 14, in get
+    model = Product.get_model(pid, err_msg='相关产品未添加或已隐藏')
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/models/product.py", line 56, in get_model
+    model = cls._combine_single_data(*res)
+TypeError: _combine_single_data() missing 3 required positional arguments: 'category', 'theme', and 'path'
+
+2019-11-18 01:28:18,340 DEBUG 6932   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:37.640 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 01:28:18,686 DEBUG 6932   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:62.140 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 01:28:18,749 DEBUG 6932   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:39.990 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 01:28:18,826 DEBUG 6932   ---  [MainThread] - [PUT] -> [/cms/product/1] from:127.0.0.1 costs:38.600 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 01:28:45,942 DEBUG 6989   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:115.450 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 01:28:46,054 DEBUG 6989   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:86.930 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 01:28:46,156 DEBUG 6989   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:30.880 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 01:28:46,530 DEBUG 6989   ---  [MainThread] - [PUT] -> [/cms/product/1] from:127.0.0.1 costs:39.060 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 01:29:18,430 DEBUG 7045   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:89.890 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 01:29:18,497 DEBUG 7045   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:43.900 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-18 01:29:18,551 DEBUG 7045   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:22.830 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-18 01:29:18,983 DEBUG 7045   ---  [MainThread] - [PUT] -> [/cms/product/1] from:127.0.0.1 costs:50.890 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 

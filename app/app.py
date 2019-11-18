@@ -26,6 +26,7 @@ def create_tables(app):
     from lin.db import db
     with app.app_context():
         db.create_all()
+        # db.drop_all()
 
 
 def register_before_request(app):
@@ -74,6 +75,8 @@ def create_app(register_all=True, environment='production'):
         app.config.from_object('app.config.setting.DevelopmentConfig')
         app.config.from_object('app.config.secure.DevelopmentSecure')
     app.config.from_object('app.config.log')
+    app.config.from_object('app.config.wechat')
+    app.config.from_object('app.extensions.file.config')
     if register_all:
         register_blueprints(app)
         Lin(app)

@@ -5,9 +5,16 @@
 
 import re
 import time
+from datetime import datetime, timedelta
 
 from flask import current_app, jsonify, request
 from lin.exception import ParameterException
+
+
+def datetime_format(dt=None, fmt='%Y-%m-%d %H:%M:%S'):
+    if not dt:
+        dt = datetime.now()
+    return dt.strftime(fmt)
 
 
 def get_timestamp(fmt='%Y-%m-%d %H:%M:%S'):

@@ -11,7 +11,7 @@ app = create_app()
 def test_login():
     with app.test_client() as c:
         rv = c.post('/cms/user/login', json={
-            'nickname': 'super', 'password': '123456'
+            'username': 'super', 'password': '123456'
         })
         json_data = rv.get_json()
         print(json_data)
@@ -22,7 +22,7 @@ def test_login():
 
 def test_change_password():
     with app.test_client() as c:
-        rv = c.put('/cms/user/', headers={
+        rv = c.put('/cms/user', headers={
             'Authorization': 'Bearer ' + get_token()
         }, json={
             'email': '1312342604@qq.com'
