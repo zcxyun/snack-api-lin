@@ -8,6 +8,7 @@ from app.models.book import Book
 from lin.db import db
 
 from app.models.product_property import ProductProperty
+from app.models.theme_product import ThemeProduct
 
 app = create_app()
 
@@ -75,6 +76,25 @@ def add_product_property():
         )
 
 
+# 产品主题相关
+def add_theme_product():
+    data = [{
+        'theme_id': 5,
+        'product_id': 1
+    }, {
+        'theme_id': 6,
+        'product_id': 1
+    }, {
+        'theme_id': 7,
+        'product_id': 1
+    }, {
+        'theme_id': 6,
+        'product_id': 2
+    }]
+    for item in data:
+        ThemeProduct.create(**item)
+
+
 with app.app_context():
     with db.auto_commit():
-        add_product_property()
+        add_theme_product()

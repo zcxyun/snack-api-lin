@@ -1,0 +1,1540 @@
+2019-11-20 12:41:46,929 ERROR 17933   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 15, in get
+    return jsonify(model)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Product' object has no attribute 'theme'
+
+2019-11-20 12:41:46,935 DEBUG 17933   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:14239.260 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 12:41:47,244 ERROR 17933   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 39, in get_paginate
+    return jsonify(models)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Product' object has no attribute 'theme'
+
+2019-11-20 12:41:47,247 DEBUG 17933   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:32.300 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 12:43:47,707 ERROR 18054   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 15, in get
+    return jsonify(model)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Product' object has no attribute 'theme'
+
+2019-11-20 12:43:47,719 DEBUG 18054   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:2043.210 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 12:43:48,571 ERROR 18054   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 39, in get_paginate
+    return jsonify(models)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Product' object has no attribute 'theme'
+
+2019-11-20 12:43:48,581 DEBUG 18054   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:104.850 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 12:46:18,850 ERROR 18095   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 15, in get
+    return jsonify(model)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Product' object has no attribute 'theme'
+
+2019-11-20 12:46:18,858 DEBUG 18095   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:97.970 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 12:46:19,189 ERROR 18095   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 39, in get_paginate
+    return jsonify(models)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Product' object has no attribute 'theme'
+
+2019-11-20 12:46:19,192 DEBUG 18095   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:64.100 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 12:48:06,436 ERROR 18130   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 15, in get
+    return jsonify(model)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Product' object has no attribute 'theme'
+
+2019-11-20 12:48:06,451 DEBUG 18130   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:94.160 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 12:48:06,777 ERROR 18130   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 39, in get_paginate
+    return jsonify(models)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Product' object has no attribute 'theme'
+
+2019-11-20 12:48:06,779 DEBUG 18130   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:52.860 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 12:48:29,052 ERROR 18159   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1926, in get_property
+    return self._props[key]
+KeyError: 'theme_product'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 15, in get
+    return jsonify(model)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 287, in __get__
+    if self.scalar:
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 767, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 237, in scalar
+    scalar = not self._get_property().uselist
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 220, in _get_property
+    get_property(self.target_collection))
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1929, in get_property
+    "Mapper '%s' has no property '%s'" % (self, key))
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper|Product|product' has no property 'theme_product'
+
+2019-11-20 12:48:29,064 DEBUG 18159   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:97.630 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 12:48:29,444 ERROR 18159   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1926, in get_property
+    return self._props[key]
+KeyError: 'theme_product'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 39, in get_paginate
+    return jsonify(models)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 287, in __get__
+    if self.scalar:
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 767, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 237, in scalar
+    scalar = not self._get_property().uselist
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 220, in _get_property
+    get_property(self.target_collection))
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1929, in get_property
+    "Mapper '%s' has no property '%s'" % (self, key))
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper|Product|product' has no property 'theme_product'
+
+2019-11-20 12:48:29,447 DEBUG 18159   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:73.450 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:19:44,091 ERROR 18449   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1926, in get_property
+    return self._props[key]
+KeyError: 'theme_product'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 15, in get
+    return jsonify(model)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 287, in __get__
+    if self.scalar:
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 767, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 237, in scalar
+    scalar = not self._get_property().uselist
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 220, in _get_property
+    get_property(self.target_collection))
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1929, in get_property
+    "Mapper '%s' has no property '%s'" % (self, key))
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper|Product|product' has no property 'theme_product'
+
+2019-11-20 13:19:44,097 DEBUG 18449   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:174.610 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:19:44,497 ERROR 18449   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1926, in get_property
+    return self._props[key]
+KeyError: 'theme_product'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 39, in get_paginate
+    return jsonify(models)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 287, in __get__
+    if self.scalar:
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 767, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 237, in scalar
+    scalar = not self._get_property().uselist
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 220, in _get_property
+    get_property(self.target_collection))
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1929, in get_property
+    "Mapper '%s' has no property '%s'" % (self, key))
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper|Product|product' has no property 'theme_product'
+
+2019-11-20 13:19:44,499 DEBUG 18449   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:53.100 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:20:34,266 ERROR 18525   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 15, in get
+    return jsonify(model)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Product' object has no attribute 'themes'
+
+2019-11-20 13:20:34,278 DEBUG 18525   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:111.780 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:20:34,606 ERROR 18525   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 39, in get_paginate
+    return jsonify(models)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Product' object has no attribute 'themes'
+
+2019-11-20 13:20:34,608 DEBUG 18525   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:52.170 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:25:01,154 ERROR 18798   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 15, in get
+    return jsonify(model)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Product' object has no attribute 'themes'
+
+2019-11-20 13:25:01,161 DEBUG 18798   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:102.820 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:25:01,462 ERROR 18798   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 39, in get_paginate
+    return jsonify(models)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+AttributeError: 'Product' object has no attribute 'themes'
+
+2019-11-20 13:25:01,465 DEBUG 18798   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:43.880 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:25:22,764 ERROR 18827   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1926, in get_property
+    return self._props[key]
+KeyError: 'theme_product'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 15, in get
+    return jsonify(model)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 287, in __get__
+    if self.scalar:
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 767, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 237, in scalar
+    scalar = not self._get_property().uselist
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 220, in _get_property
+    get_property(self.target_collection))
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1929, in get_property
+    "Mapper '%s' has no property '%s'" % (self, key))
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper|Product|product' has no property 'theme_product'
+
+2019-11-20 13:25:22,772 DEBUG 18827   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:87.150 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:25:23,096 ERROR 18827   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1926, in get_property
+    return self._props[key]
+KeyError: 'theme_product'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 39, in get_paginate
+    return jsonify(models)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 287, in __get__
+    if self.scalar:
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 767, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 237, in scalar
+    scalar = not self._get_property().uselist
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 220, in _get_property
+    get_property(self.target_collection))
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1929, in get_property
+    "Mapper '%s' has no property '%s'" % (self, key))
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper|Product|product' has no property 'theme_product'
+
+2019-11-20 13:25:23,099 DEBUG 18827   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:61.800 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:25:50,552 DEBUG 18856   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:78.190 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:25:50,732 DEBUG 18856   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:130.630 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:26:23,671 ERROR 18884   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1926, in get_property
+    return self._props[key]
+KeyError: 'theme_product'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/theme.py", line 16, in get
+    return jsonify(model)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 287, in __get__
+    if self.scalar:
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 767, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 237, in scalar
+    scalar = not self._get_property().uselist
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 220, in _get_property
+    get_property(self.target_collection))
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1929, in get_property
+    "Mapper '%s' has no property '%s'" % (self, key))
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper|Theme|theme' has no property 'theme_product'
+
+2019-11-20 13:26:23,676 DEBUG 18884   ---  [MainThread] - [GET] -> [/cms/theme/5] from:127.0.0.1 costs:223.840 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:26:24,007 DEBUG 18884   ---  [MainThread] - [GET] -> [/cms/theme/all] from:127.0.0.1 costs:35.480 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:26:24,082 ERROR 18884   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1926, in get_property
+    return self._props[key]
+KeyError: 'theme_product'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/theme.py", line 32, in get_paginate
+    return jsonify(models)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 287, in __get__
+    if self.scalar:
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 767, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 237, in scalar
+    scalar = not self._get_property().uselist
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 220, in _get_property
+    get_property(self.target_collection))
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1929, in get_property
+    "Mapper '%s' has no property '%s'" % (self, key))
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper|Theme|theme' has no property 'theme_product'
+
+2019-11-20 13:26:24,091 DEBUG 18884   ---  [MainThread] - [GET] -> [/cms/theme/paginate] from:127.0.0.1 costs:51.240 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:28:08,380 ERROR 18919   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 135, in execute
+    self.errorhandler(exc, value)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 37, in errorhandler
+    self.connection.errorhandler(self, errorclass, errorvalue)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/connections.py", line 117, in errorhandler
+    raise errorvalue
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 130, in execute
+    self._query(query)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 240, in _query
+    conn.query(q)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/connections.py", line 346, in query
+    self._result = MySQLResult(self)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/packet.py", line 270, in __init__
+    self.first_packet = MysqlPacket(self.connection)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/packet.py", line 66, in __init__
+    raise_mysql_exception(self.__data)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/err.py", line 149, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/err.py", line 144, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+cymysql.err.InternalError: (1054, "Unknown column 'theme_product.special_key' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/theme.py", line 16, in get
+    return jsonify(model)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 299, in __get__
+    proxy = self._new(_lazy_collection(obj, self.target_collection))
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 350, in _new
+    self.collection_class = util.duck_type_collection(lazy_collection())
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 543, in __call__
+    return getattr(obj, self.target)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/attributes.py", line 242, in __get__
+    return self.impl.get(instance_state(instance), dict_)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/attributes.py", line 599, in get
+    value = self.callable_(state, passive)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/strategies.py", line 631, in _load_for_state
+    session, state, primary_key_identity, passive)
+  File "<string>", line 1, in <lambda>
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/strategies.py", line 771, in _emit_lazyload
+    with_post_criteria(set_default_params).all()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/baked.py", line 446, in all
+    return list(self)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/baked.py", line 353, in __iter__
+    return q._execute_and_instances(context)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3011, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 135, in execute
+    self.errorhandler(exc, value)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 37, in errorhandler
+    self.connection.errorhandler(self, errorclass, errorvalue)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/connections.py", line 117, in errorhandler
+    raise errorvalue
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 130, in execute
+    self._query(query)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 240, in _query
+    conn.query(q)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/connections.py", line 346, in query
+    self._result = MySQLResult(self)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/packet.py", line 270, in __init__
+    self.first_packet = MysqlPacket(self.connection)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/packet.py", line 66, in __init__
+    raise_mysql_exception(self.__data)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/err.py", line 149, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/err.py", line 144, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+sqlalchemy.exc.InternalError: (cymysql.err.InternalError) (1054, "Unknown column 'theme_product.special_key' in 'field list'") [SQL: 'SELECT theme_product.create_time AS theme_product_create_time, theme_product.update_time AS theme_product_update_time, theme_product.delete_time AS theme_product_delete_time, theme_product.id AS theme_product_id, theme_product.theme_id AS theme_product_theme_id, theme_product.product_id AS theme_product_product_id, theme_product.special_key AS theme_product_special_key \nFROM theme_product \nWHERE %s = theme_product.theme_id'] [parameters: (5,)] (Background on this error at: http://sqlalche.me/e/2j85)
+
+2019-11-20 13:28:08,387 DEBUG 18919   ---  [MainThread] - [GET] -> [/cms/theme/5] from:127.0.0.1 costs:137.860 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:28:08,697 DEBUG 18919   ---  [MainThread] - [GET] -> [/cms/theme/all] from:127.0.0.1 costs:20.360 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 13:28:08,791 ERROR 18919   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 135, in execute
+    self.errorhandler(exc, value)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 37, in errorhandler
+    self.connection.errorhandler(self, errorclass, errorvalue)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/connections.py", line 117, in errorhandler
+    raise errorvalue
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 130, in execute
+    self._query(query)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 240, in _query
+    conn.query(q)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/connections.py", line 346, in query
+    self._result = MySQLResult(self)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/packet.py", line 270, in __init__
+    self.first_packet = MysqlPacket(self.connection)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/packet.py", line 66, in __init__
+    raise_mysql_exception(self.__data)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/err.py", line 149, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/err.py", line 144, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+cymysql.err.InternalError: (1054, "Unknown column 'theme_product.special_key' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/theme.py", line 32, in get_paginate
+    return jsonify(models)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 321, in jsonify
+    dumps(data, indent=indent, separators=separators) + '\n',
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/json/__init__.py", line 179, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/core.py", line 364, in default
+    return dict(o)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 85, in __getitem__
+    return getattr(self, key)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 299, in __get__
+    proxy = self._new(_lazy_collection(obj, self.target_collection))
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 350, in _new
+    self.collection_class = util.duck_type_collection(lazy_collection())
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/associationproxy.py", line 543, in __call__
+    return getattr(obj, self.target)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/attributes.py", line 242, in __get__
+    return self.impl.get(instance_state(instance), dict_)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/attributes.py", line 599, in get
+    value = self.callable_(state, passive)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/strategies.py", line 631, in _load_for_state
+    session, state, primary_key_identity, passive)
+  File "<string>", line 1, in <lambda>
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/strategies.py", line 771, in _emit_lazyload
+    with_post_criteria(set_default_params).all()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/baked.py", line 446, in all
+    return list(self)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/ext/baked.py", line 353, in __iter__
+    return q._execute_and_instances(context)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3011, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 135, in execute
+    self.errorhandler(exc, value)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 37, in errorhandler
+    self.connection.errorhandler(self, errorclass, errorvalue)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/connections.py", line 117, in errorhandler
+    raise errorvalue
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 130, in execute
+    self._query(query)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 240, in _query
+    conn.query(q)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/connections.py", line 346, in query
+    self._result = MySQLResult(self)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/packet.py", line 270, in __init__
+    self.first_packet = MysqlPacket(self.connection)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/packet.py", line 66, in __init__
+    raise_mysql_exception(self.__data)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/err.py", line 149, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/err.py", line 144, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+sqlalchemy.exc.InternalError: (cymysql.err.InternalError) (1054, "Unknown column 'theme_product.special_key' in 'field list'") [SQL: 'SELECT theme_product.create_time AS theme_product_create_time, theme_product.update_time AS theme_product_update_time, theme_product.delete_time AS theme_product_delete_time, theme_product.id AS theme_product_id, theme_product.theme_id AS theme_product_theme_id, theme_product.product_id AS theme_product_product_id, theme_product.special_key AS theme_product_special_key \nFROM theme_product \nWHERE %s = theme_product.theme_id'] [parameters: (7,)] (Background on this error at: http://sqlalche.me/e/2j85)
+
+2019-11-20 13:28:08,811 DEBUG 18919   ---  [MainThread] - [GET] -> [/cms/theme/paginate] from:127.0.0.1 costs:79.940 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:20:39,229 DEBUG 20129   ---  [MainThread] - [GET] -> [/cms/theme/3] from:127.0.0.1 costs:192.720 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:20:39,722 DEBUG 20129   ---  [MainThread] - [GET] -> [/cms/theme/all] from:127.0.0.1 costs:64.010 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:20:39,830 DEBUG 20129   ---  [MainThread] - [GET] -> [/cms/theme/paginate] from:127.0.0.1 costs:89.460 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:20:39,877 DEBUG 20129   ---  [MainThread] - [POST] -> [/cms/theme] from:127.0.0.1 costs:33.030 ms data:{
+	param: {}, 
+	body: {'head_img_id': 2, 'name': '炒货天堂', 'summary': '炒货无敌', 'topic_img_id': 2}
+} 
+2019-11-20 15:20:39,986 DEBUG 20129   ---  [MainThread] - [PUT] -> [/cms/theme/2] from:127.0.0.1 costs:56.840 ms data:{
+	param: {}, 
+	body: {'head_img_id': 1, 'name': '水果世界', 'summary': '美味水果世界', 'topic_img_id': 1}
+} 
+2019-11-20 15:20:40,058 DEBUG 20129   ---  [MainThread] - [PUT] -> [/cms/theme/hide/2] from:127.0.0.1 costs:34.700 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:20:40,096 DEBUG 20129   ---  [MainThread] - [PUT] -> [/cms/theme/show/2] from:127.0.0.1 costs:7.360 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:20:46,790 DEBUG 20158   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:42.670 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:20:47,181 DEBUG 20158   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:57.030 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:20:47,250 DEBUG 20158   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:47.010 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-20 15:20:47,325 DEBUG 20158   ---  [MainThread] - [PUT] -> [/cms/product/1] from:127.0.0.1 costs:42.130 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-20 15:21:55,861 DEBUG 20185   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:7268.180 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:21:56,229 DEBUG 20185   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:24.730 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:21:56,259 DEBUG 20185   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:13.180 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-20 15:21:56,289 DEBUG 20185   ---  [MainThread] - [PUT] -> [/cms/product/1] from:127.0.0.1 costs:13.650 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗', 'theme_id': 3}
+} 
+2019-11-20 15:27:03,175 DEBUG 20355   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:7926.460 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:27:03,552 DEBUG 20355   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:57.450 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:27:03,583 DEBUG 20355   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:13.340 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 15:27:03,676 DEBUG 20355   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:76.560 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:27:03,696 DEBUG 20355   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:11.650 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:27:03,710 DEBUG 20355   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:6.760 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 15:28:20,263 DEBUG 20414   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:34233.740 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:28:20,314 DEBUG 20414   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:17.510 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:28:20,334 DEBUG 20414   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:7.760 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 15:28:20,737 DEBUG 20414   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:15.860 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:28:20,757 DEBUG 20414   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:12.260 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 15:28:20,775 DEBUG 20414   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:8.870 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 16:47:11,487 DEBUG 21058   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:2763.780 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 16:47:11,524 DEBUG 21058   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:23.280 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 16:47:11,569 DEBUG 21058   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:8.990 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 16:47:11,919 DEBUG 21058   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:17.440 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 16:47:11,959 DEBUG 21058   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:26.090 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 16:47:12,000 DEBUG 21058   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:17.920 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 16:48:40,652 DEBUG 21122   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:1504.030 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 16:48:40,692 DEBUG 21122   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:22.550 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 16:48:40,746 DEBUG 21122   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:14.090 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜2', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 16:48:41,188 DEBUG 21122   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:27.640 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 16:48:41,209 DEBUG 21122   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:11.630 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 16:48:41,226 DEBUG 21122   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:7.870 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 17:32:17,048 DEBUG 21477   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:2321.190 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 17:32:17,077 DEBUG 21477   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:15.940 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 17:32:17,120 DEBUG 21477   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:31.500 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜3', 'price_str': '2.21', 'stock': 0, 'summary': '芹菜好吃吗', '产地': '许昌', '品名': '芹菜3'}
+} 
+2019-11-20 17:32:17,159 DEBUG 21477   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:17.970 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 17:32:17,187 DEBUG 21477   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:15.990 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 17:32:17,256 DEBUG 21477   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:52.640 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 17:35:45,866 DEBUG 21518   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:1866.210 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 17:35:45,895 DEBUG 21518   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:16.000 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 17:35:45,953 ERROR 21518   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 63, in create
+    ProductProperty.create(**prop, product_id=product.id)
+AttributeError: 'bool' object has no attribute 'id'
+
+2019-11-20 17:35:45,965 DEBUG 21518   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:57.640 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜4', 'price_str': '2.21', 'prop': [{'detail': '芹菜4', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 17:35:46,335 DEBUG 21518   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:11.420 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 17:35:46,355 DEBUG 21518   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:12.010 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 17:35:46,371 DEBUG 21518   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:7.800 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 17:40:44,363 DEBUG 21561   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:1846.530 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 17:40:44,401 DEBUG 21561   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:22.060 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 17:40:44,456 DEBUG 21561   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:27.340 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜4', 'price_str': '2.21', 'prop': [{'detail': '芹菜4', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 17:40:44,478 DEBUG 21561   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:12.830 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 17:40:44,523 DEBUG 21561   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:19.490 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 17:40:44,540 DEBUG 21561   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:8.500 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜1', 'price_str': '1.20', 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 20:57:21,442 ERROR 22777   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 17, in get
+    product_propertes = ProductProperty.get_by_product_id(model.id)
+TypeError: get_by_product_id() missing 1 required keyword-only argument: 'err_msg'
+
+2019-11-20 20:57:21,449 DEBUG 22777   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:1729.900 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 20:57:21,827 DEBUG 22777   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:28.980 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 20:57:21,855 DEBUG 22777   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:15.240 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜4', 'price_str': '2.21', 'prop': [{'detail': '芹菜4', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 20:57:21,895 DEBUG 22777   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:22.290 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 20:57:21,918 DEBUG 22777   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:13.490 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 20:57:21,934 DEBUG 22777   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:8.180 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜3', 'price_str': '1.20', 'prop': [{'detail': '杨梅梅', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 20:58:31,325 DEBUG 22843   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:38.880 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 20:58:31,432 DEBUG 22843   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:77.560 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 20:58:31,504 DEBUG 22843   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:45.680 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜4', 'price_str': '2.21', 'prop': [{'detail': '芹菜4', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 20:58:31,839 DEBUG 22843   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:35.520 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 20:58:31,922 DEBUG 22843   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:74.070 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 20:58:31,956 DEBUG 22843   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:24.570 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜4', 'price_str': '1.20', 'prop': [{'detail': '杨梅梅', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 20:59:33,435 DEBUG 22925   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:59.430 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 20:59:33,522 DEBUG 22925   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:59.740 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 20:59:33,581 DEBUG 22925   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:31.320 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': '芹菜4', 'price_str': '2.21', 'prop': [{'detail': '芹菜4', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 20:59:34,054 DEBUG 22925   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:44.380 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 20:59:34,102 DEBUG 22925   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:33.490 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 20:59:34,255 DEBUG 22925   ---  [MainThread] - [PUT] -> [/cms/product/5] from:127.0.0.1 costs:132.620 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜5', 'price_str': '1.20', 'prop': [{'detail': '杨梅梅', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 21:00:21,855 DEBUG 22985   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:68.220 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 21:00:21,929 DEBUG 22985   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:61.350 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 21:00:21,987 DEBUG 22985   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:41.080 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': 'b', 'price_str': '2.21', 'prop': [{'detail': '芹菜4', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 21:00:22,349 DEBUG 22985   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:57.330 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 21:00:22,413 DEBUG 22985   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:44.280 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 21:00:22,520 DEBUG 22985   ---  [MainThread] - [PUT] -> [/cms/product/5] from:127.0.0.1 costs:88.010 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜5', 'price_str': '1.20', 'prop': [{'detail': '杨梅梅', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 21:02:33,168 DEBUG 23015   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:46.790 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 21:02:33,268 DEBUG 23015   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:52.750 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 21:02:33,328 DEBUG 23015   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:36.780 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': 'b', 'price_str': '2.21', 'prop': [{'detail': '芹菜4', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 21:02:33,715 DEBUG 23015   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:60.430 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 21:02:33,801 DEBUG 23015   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:56.730 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 21:02:42,400 DEBUG 23015   ---  [MainThread] - [PUT] -> [/cms/product/5] from:127.0.0.1 costs:8558.010 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': '芹菜5', 'price_str': '1.20', 'prop': [{'detail': '杨梅梅', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 21:03:41,670 DEBUG 23053   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:39.060 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 21:03:41,770 DEBUG 23053   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:79.070 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 21:03:41,850 DEBUG 23053   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:64.280 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': 'b', 'price_str': '2.21', 'prop': [{'detail': '芹菜4', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 21:03:42,237 DEBUG 23053   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:41.360 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 21:03:42,293 DEBUG 23053   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:37.250 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 21:04:15,835 DEBUG 23053   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:33523.140 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': 'b', 'price_str': '1.20', 'prop': [{'detail': '杨梅梅', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 22:55:41,658 DEBUG 25327   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:50.580 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 22:55:42,059 DEBUG 25327   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:82.230 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 22:55:42,134 DEBUG 25327   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:51.590 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': 'b', 'price_str': '2.21', 'prop': [{'detail': '芹菜4', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 22:55:42,219 DEBUG 25327   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:41.140 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 22:55:42,270 DEBUG 25327   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:32.740 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 22:55:44,150 DEBUG 25327   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:1856.250 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': 'b', 'price_str': '1.20', 'prop': [{'detail': '杨梅', 'name': '品名'}, {'detail': '郑州', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 22:57:54,600 DEBUG 25383   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:35.230 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 22:57:54,932 DEBUG 25383   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:45.030 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 22:57:54,991 DEBUG 25383   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:48.530 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': 'b', 'price_str': '2.21', 'prop': [{'detail': '芹菜4', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 22:57:55,028 DEBUG 25383   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:19.620 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 22:57:55,091 DEBUG 25383   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:29.040 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 22:57:56,756 ERROR 25383   ---  [MainThread] - Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 135, in execute
+    self.errorhandler(exc, value)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 37, in errorhandler
+    self.connection.errorhandler(self, errorclass, errorvalue)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/connections.py", line 117, in errorhandler
+    raise errorvalue
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 130, in execute
+    self._query(query)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 240, in _query
+    conn.query(q)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/connections.py", line 346, in query
+    self._result = MySQLResult(self)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/packet.py", line 270, in __init__
+    self.first_packet = MysqlPacket(self.connection)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/packet.py", line 66, in __init__
+    raise_mysql_exception(self.__data)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/err.py", line 149, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/err.py", line 141, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+cymysql.err.IntegrityError: (1048, "Column 'product_id' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhaochenxi/Home/PythonProjects/flask-api/snack-api-lin/app/api/cms/product.py", line 77, in update
+    for prop in props:
+  File "/Users/zhaochenxi/anaconda3/lib/python3.6/contextlib.py", line 88, in __exit__
+    next(self.gen)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 22, in auto_commit
+    raise e
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/lin/db.py", line 19, in auto_commit
+    self.session.commit()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 467, in commit
+    self._prepare_impl()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 447, in _prepare_impl
+    self.session.flush()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2254, in flush
+    self._flush(objects)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 249, in reraise
+    raise value
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2344, in _flush
+    flush_context.execute()
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 556, in execute
+    uow
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 866, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 135, in execute
+    self.errorhandler(exc, value)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 37, in errorhandler
+    self.connection.errorhandler(self, errorclass, errorvalue)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/connections.py", line 117, in errorhandler
+    raise errorvalue
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 130, in execute
+    self._query(query)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/cursors.py", line 240, in _query
+    conn.query(q)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/connections.py", line 346, in query
+    self._result = MySQLResult(self)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/packet.py", line 270, in __init__
+    self.first_packet = MysqlPacket(self.connection)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/packet.py", line 66, in __init__
+    raise_mysql_exception(self.__data)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/err.py", line 149, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/Users/zhaochenxi/.local/share/virtualenvs/snack-api-lin-g_CxUc26/lib/python3.6/site-packages/cymysql/err.py", line 141, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+sqlalchemy.exc.IntegrityError: (cymysql.err.IntegrityError) (1048, "Column 'product_id' cannot be null") [SQL: 'INSERT INTO product_property (create_time, update_time, delete_time, name, detail, product_id) VALUES (%s, %s, %s, %s, %s, %s)'] [parameters: (datetime.datetime(2019, 11, 20, 22, 57, 56, 717509), datetime.datetime(2019, 11, 20, 22, 57, 56, 717528), None, '口味', '咖啡味', None)] (Background on this error at: http://sqlalche.me/e/gkpj)
+
+2019-11-20 22:57:56,759 DEBUG 25383   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:1622.420 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': 'b', 'price_str': '1.20', 'prop': [{'detail': '杨', 'name': '品名'}, {'detail': '郑', 'name': '产地'}, {'detail': '咖啡味', 'name': '口味'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 23:00:12,801 DEBUG 25410   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:39.360 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 23:00:13,115 DEBUG 25410   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:42.180 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 23:00:13,171 DEBUG 25410   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:34.720 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': 'b', 'price_str': '2.21', 'prop': [{'detail': '芹菜4', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 23:00:13,246 DEBUG 25410   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:46.680 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 23:00:13,293 DEBUG 25410   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:39.230 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 23:00:16,046 DEBUG 25410   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:2713.220 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': 'b', 'price_str': '1.20', 'prop': [{'detail': '杨', 'name': '品名'}, {'detail': '郑', 'name': '产地'}, {'detail': '咖啡味', 'name': '口味'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 23:20:58,932 DEBUG 25608   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:32.780 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 23:20:59,293 DEBUG 25608   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:44.380 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 23:20:59,352 DEBUG 25608   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:34.090 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': 'b', 'price_str': '2.21', 'prop': [{'detail': '芹菜4', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 23:20:59,414 DEBUG 25608   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:37.000 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 23:20:59,449 DEBUG 25608   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:26.350 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 23:20:59,552 DEBUG 25608   ---  [MainThread] - [PUT] -> [/cms/product/3] from:127.0.0.1 costs:86.330 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': 'b', 'price_str': '1.20', 'prop': [{'detail': '杨', 'name': '品名'}, {'detail': '郑', 'name': '产地'}, {'detail': '咖啡味', 'name': '口味'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 23:24:30,729 DEBUG 25678   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:36.510 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 23:24:31,081 DEBUG 25678   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:37.220 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 23:24:31,124 DEBUG 25678   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:31.340 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': 'b', 'price_str': '2.21', 'prop': [{'detail': '芹菜4', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 
+2019-11-20 23:24:31,196 DEBUG 25678   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:39.210 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 23:24:31,230 DEBUG 25678   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:26.700 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-20 23:24:31,331 DEBUG 25678   ---  [MainThread] - [PUT] -> [/cms/product/1] from:127.0.0.1 costs:76.510 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 1, 'name': 'super', 'price_str': '1.20', 'prop': [{'detail': 'superman', 'name': '品名'}, {'detail': '美国', 'name': '产地'}], 'stock': 0, 'summary': '芹菜好吃吗'}
+} 

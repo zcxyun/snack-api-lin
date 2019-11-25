@@ -18,6 +18,7 @@ Lin-CMS = "==0.2.0b2"
 pytest = "*"
 flask-migrate = "*"
 flask-script = "*"
+pydash = "*"
 
 [requires]
 python_version = "3.6"

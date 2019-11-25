@@ -1,14 +1,16 @@
+import re
 from decimal import Decimal
 
 from lin import db
 from lin.core import File
 from lin.exception import NotFound, ParameterException
+from pydash import group_by
 from sqlalchemy import Column, Integer, String, DECIMAL
-import re
+
 from app.models.base import Base
 from app.models.category import Category
-from app.models.product_property import ProductProperty
 from app.models.theme import Theme
+from app.models.theme_product import ThemeProduct
 
 
 class Product(Base):
@@ -18,12 +20,11 @@ class Product(Base):
     stock = Column(Integer, default=0, comment='库存量')
     summary = Column(String(50), comment='摘要')
     category_id = Column(Integer, nullable=False, comment='分类ID')
-    theme_id = Column(Integer, default=1, comment='主题ID')
     img_id = Column(Integer, comment='关联图片ID')
 
     def _set_fields(self):
         self._fields = ['id', 'name', 'price_str', 'stock', 'summary',
-                        'delete_time', 'category_id', 'theme_id', 'img_id']
+                        'delete_time', 'category_id', 'img_id']
 
     @property
     def price_str(self):
@@ -38,8 +39,7 @@ class Product(Base):
 
     @classmethod
     def get_model(cls, id, soft=True, *, err_msg=None):
-        res = db.session.query(cls, Category.name, Theme.name, File.path).filter(
-            cls.theme_id == Theme.id,
+        res = db.session.query(cls, Category, File).filter(
             cls.category_id == Category.id,
             cls.img_id == File.id,
             cls.id == id
@@ -54,8 +54,7 @@ class Product(Base):
 
     @classmethod
     def get_paginate_models(cls, start, count, q=None, cid=0, tid=0, soft=True, *, err_msg=None):
-        statement = db.session.query(cls, Category.name, Theme.name, File.path).filter(
-            cls.theme_id == Theme.id,
+        statement = db.session.query(cls, Category, File).filter(
             cls.category_id == Category.id,
             cls.img_id == File.id
         ).filter_by(soft=soft)
@@ -83,8 +82,7 @@ class Product(Base):
 
     @classmethod
     def get_recent(cls, count, soft=True, *, err_msg=None):
-        res = db.session.query(cls, Category.name, Theme.name, File.path).filter(
-            cls.theme_id == Theme.id,
+        res = db.session.query(cls, Category, File).filter(
             cls.category_id == Category.id,
             cls.img_id == File.id
         ).filter_by(soft=soft).order_by(cls.id.desc()).limit(count).all()
@@ -97,11 +95,35 @@ class Product(Base):
         return models
 
     @classmethod
-    def _combine_single_data(cls, model, category, theme, path):
-        model.category = category
-        model.theme = theme
-        model.image = cls.get_file_url(path)
-        model._fields.extend(['category', 'theme', 'image'])
+    def get_themes_by_id(cls, pid, soft=True):
+        res = db.session.query(Theme).filter(
+            cls.id == ThemeProduct.product_id,
+            cls.id == pid,
+            ThemeProduct.theme_id == Theme.id,
+            ThemeProduct.delete_time == None,
+            Theme.delete_time == None,
+        ).filter_by(soft=soft).all()
+        return res
+
+    @classmethod
+    def get_themes_by_ids(cls, ids, soft=True):
+        res = db.session.query(cls.id, Theme).filter(
+            cls.id.in_(ids),
+            cls.id == ThemeProduct.product_id,
+            ThemeProduct.theme_id == Theme.id,
+            ThemeProduct.delete_time == None,
+            Theme.delete_time == None,
+        ).filter_by(soft=soft).order_by(cls.id.desc()).all()
+        res = group_by(res, 'id')
+        for k, v in res.items():
+            res[k] = [{'id': i[1].id, 'name': i[1].name} for i in v]
+        return res
+
+    @classmethod
+    def _combine_single_data(cls, model, category, file):
+        model.category = [{'id': category.id, 'name': category.name}]
+        model.image = cls.get_file_url(file.path)
+        model._fields.extend(['category', 'image'])
         return model
 
     @classmethod

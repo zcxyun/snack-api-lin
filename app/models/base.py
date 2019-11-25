@@ -168,7 +168,7 @@ class Base(InfoCrud):
         return res
 
     @classmethod
-    def add_model(cls, data, *, err_msg=None):
+    def add_model(cls, data, commit=True, *, err_msg=None):
         """添加模型"""
         if not data.get('name'):
             return False
@@ -178,11 +178,11 @@ class Base(InfoCrud):
                 return False
             else:
                 raise ParameterException(msg=err_msg)
-        cls.create(**data, commit=True)
-        return True
+        model = cls.create(**data, commit=commit)
+        return model
 
     @classmethod
-    def edit_model(cls, id, data, *, err_msg=None):
+    def edit_model(cls, id, data, commit=True, *, err_msg=None):
         """编辑模型"""
         if not data.get('name'):
             return False
@@ -198,11 +198,11 @@ class Base(InfoCrud):
                 return False
             else:
                 raise NotFound(msg=err_msg[1])
-        model.update(**data, commit=True)
-        return True
+        model.update(**data, commit=commit)
+        return model
 
     @classmethod
-    def remove_model(cls, id, *, err_msg=None):
+    def remove_model(cls, id, commit=True, *, err_msg=None):
         """删除模型"""
         model = cls.query.filter_by(id=id, soft=True).first()
         if not model:
@@ -210,11 +210,11 @@ class Base(InfoCrud):
                 return False
             else:
                 raise NotFound(msg=err_msg)
-        model.hard_delete(commit=True)
+        model.hard_delete(commit=commit)
         return True
 
     @classmethod
-    def hide_model(cls, id, *, err_msg=None):
+    def hide_model(cls, id, commit=True, *, err_msg=None):
         """删除模型(软删除)"""
         model = cls.query.filter_by(id=id, soft=True).first()
         if not model:
@@ -222,11 +222,11 @@ class Base(InfoCrud):
                 return False
             else:
                 raise NotFound(msg=err_msg)
-        model.delete(commit=True)
+        model.delete(commit=commit)
         return True
 
     @classmethod
-    def show_model(cls, id, *, err_msg=None):
+    def show_model(cls, id, commit=True, *, err_msg=None):
         """恢复模型(模型只能是软删除)"""
         model = cls.query.filter_by(id=id).filter(cls.delete_time != None).first()
         if not model:
@@ -234,5 +234,5 @@ class Base(InfoCrud):
                 return False
             else:
                 raise NotFound(msg=err_msg)
-        model.update(delete_time=None, commit=True)
+        model.update(delete_time=None, commit=commit)
         return True

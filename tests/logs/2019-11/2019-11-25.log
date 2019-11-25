@@ -1,0 +1,24 @@
+2019-11-25 17:37:36,161 DEBUG 46901   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:159.170 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-25 17:37:36,275 DEBUG 46901   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:61.520 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-25 17:37:36,410 DEBUG 46901   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:93.460 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': 'a2', 'price_str': '1.21', 'props': [{'detail': 'a2', 'name': '品名'}, {'detail': '优', 'name': '品质'}], 'stock': 2, 'summary': '好吗', 'theme_ids': [5, 6, 7]}
+} 
+2019-11-25 17:37:37,010 DEBUG 46901   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:81.320 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-25 17:37:37,243 DEBUG 46901   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:144.860 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-25 17:37:37,392 DEBUG 46901   ---  [MainThread] - [PUT] -> [/cms/product/1] from:127.0.0.1 costs:51.440 ms data:{
+	param: {}, 
+	body: {'category_id': 6, 'img_id': 1, 'name': 'd', 'price_str': '1.20', 'props': [{'detail': 'super', 'name': '品名'}, {'detail': 'm国', 'name': '产地'}, {'detail': '10day', 'name': '保质期'}], 'stock': 0, 'summary': 'd好吃吗', 'theme_ids': [1, 5]}
+} 

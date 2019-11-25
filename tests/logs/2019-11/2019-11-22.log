@@ -1,0 +1,24 @@
+2019-11-22 17:42:24,106 DEBUG 33096   ---  [MainThread] - [GET] -> [/cms/product/3] from:127.0.0.1 costs:76.510 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-22 17:42:24,229 DEBUG 33096   ---  [MainThread] - [GET] -> [/cms/product/paginate] from:127.0.0.1 costs:89.180 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-22 17:42:24,336 DEBUG 33096   ---  [MainThread] - [POST] -> [/cms/product] from:127.0.0.1 costs:30.350 ms data:{
+	param: {}, 
+	body: {'category_id': 2, 'img_id': 2, 'name': 'e', 'price_str': '1.21', 'props': [{'detail': 'c', 'name': '品名'}, {'detail': '许昌', 'name': '产地'}], 'stock': 12, 'summary': '好吃吗'}
+} 
+2019-11-22 17:42:24,694 DEBUG 33096   ---  [MainThread] - [PUT] -> [/cms/product/hide/3] from:127.0.0.1 costs:38.930 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-22 17:42:24,751 DEBUG 33096   ---  [MainThread] - [PUT] -> [/cms/product/show/3] from:127.0.0.1 costs:37.030 ms data:{
+	param: {}, 
+	body: {}
+} 
+2019-11-22 17:42:24,816 DEBUG 33096   ---  [MainThread] - [PUT] -> [/cms/product/1] from:127.0.0.1 costs:46.320 ms data:{
+	param: {}, 
+	body: {'category_id': 6, 'img_id': 1, 'name': 'd', 'price_str': '1.20', 'props': [{'detail': 'zcx', 'name': '品名'}], 'stock': 0, 'summary': 'd好吃吗'}
+} 
