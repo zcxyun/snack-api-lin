@@ -7,6 +7,12 @@ class GenderEnum(Enum):
     FEMALE = 2
 
 
+class BannerItemType(Enum):
+    UNKNOWN = 1
+    PRODUCT = 2
+    THEME = 3
+
+
 class MemberActive(Enum):
     INACTIVE = 0
     ACTIVE = 1

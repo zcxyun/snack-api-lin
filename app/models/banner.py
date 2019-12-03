@@ -8,4 +8,4 @@ class Banner(Base):
     summary = Column(String(255), comment='Banner描述')
 
     def _set_fields(self):
-        self._fields = ['name', 'summary']
+        self._fields = ['id', 'name', 'summary', 'delete_time']

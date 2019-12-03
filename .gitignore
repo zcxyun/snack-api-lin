@@ -8,4 +8,4 @@ __pycache__
 *.pyc
 *.cpython-36.pyc
 app/assets/*
-app/tests/logs/*
+*.log

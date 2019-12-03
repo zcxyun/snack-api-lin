@@ -1,5 +1,5 @@
 from lin import db
-from lin.exception import ParameterException, NotFound
+from lin.exception import ParameterException
 from sqlalchemy import Column, Integer
 
 from app.models.base import Base

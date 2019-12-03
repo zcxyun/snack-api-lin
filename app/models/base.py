@@ -11,11 +11,11 @@ from lin.interface import InfoCrud
 class Base(InfoCrud):
     __abstract__ = True
 
-    # @property
-    # def create_time(self):
-    #     if self._create_time is None:
-    #         return None
-    #     return self._create_time.strftime('%Y-%m-%d %H:%M:%S')
+    @property
+    def create_time(self):
+        if self._create_time is None:
+            return None
+        return self._create_time.strftime('%Y-%m-%d %H:%M:%S')
     #
     # @property
     # def update_time(self):
@@ -171,7 +171,7 @@ class Base(InfoCrud):
     def add_model(cls, data, commit=True, *, err_msg=None):
         """添加模型"""
         if not data.get('name'):
-            return False
+            raise ParameterException(msg='要添加的数据中没有name属性')
         model = cls.query.filter_by(name=data.get('name')).first()
         if model is not None:
             if err_msg is None:
@@ -185,7 +185,7 @@ class Base(InfoCrud):
     def edit_model(cls, id, data, commit=True, *, err_msg=None):
         """编辑模型"""
         if not data.get('name'):
-            return False
+            raise ParameterException(msg='要更改的数据中没有name属性')
         model = cls.query.filter_by(name=data.get('name')).filter(cls.id != id).first()
         if model is not None:
             if err_msg is None:

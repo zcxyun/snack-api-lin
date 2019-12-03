@@ -23,6 +23,20 @@ def get_all():
     return models
 
 
+@category_api.route('/all/products', methods=['GET'])
+def get_with_products():
+    models = Category.get_all_with_products(err_msg='相关种类和产品不存在')
+    # res = []
+    # for model in models:
+    #     cate_res = {'label': model.name, 'value': model.id}
+    #     res.append(cate_res)
+    #     if getattr(model, 'products'):
+    #         cate_res.setdefault('children', [])
+    #         for product in model.products:
+    #             cate_res['children'].append({'label': product.name, 'value': product.id})
+    return models
+
+
 @category_api.route('/paginate', methods=['GET'])
 def get_paginate():
     start, count = paginate()

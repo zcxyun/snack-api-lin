@@ -18,15 +18,20 @@ class Member(Base):
                     comment='当前用户是否为激活状态，非激活状态默认失去用户权限 ; 1 -> 激活 | 0 -> 非激活')
 
     def _set_fields(self):
-        self._fields = ['nickName', 'avatarUrl', 'gender', 'country', 'province', 'city']
+        self._fields = ['nickName', 'avatarUrl', 'gender_str', 'country', 'province', 'city']
 
     def is_active(self):
         return self.active == MemberActive.ACTIVE.value
 
+    @property
+    def gender_str(self):
+        description = {0: '未知', 1: '男性', 2: '女性'}
+        return description[self.gender]
+
     @classmethod
-    def get_paginate_models(cls, start, count, q=None, *, err_msg=None):
+    def get_paginate_models(cls, start, count, q=None, soft=True, *, err_msg=None):
         """分页查询会员模型(支持搜索)"""
-        statement = cls.query.filter_by(delete_time=None)
+        statement = cls.query.filter_by(soft=soft)
         if q:
             search_key = '%{}%'.format(q)
             statement = statement.filter(cls.nickName.ilike(search_key))

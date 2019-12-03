@@ -116,12 +116,12 @@ class Product(Base):
         ).filter_by(soft=soft).order_by(cls.id.desc()).all()
         res = group_by(res, 'id')
         for k, v in res.items():
-            res[k] = [{'id': i[1].id, 'name': i[1].name} for i in v]
+            res[k] = [i[1].name for i in v]
         return res
 
     @classmethod
     def _combine_single_data(cls, model, category, file):
-        model.category = [{'id': category.id, 'name': category.name}]
+        model.category = category.name
         model.image = cls.get_file_url(file.path)
         model._fields.extend(['category', 'image'])
         return model
