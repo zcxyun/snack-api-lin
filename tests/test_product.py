@@ -7,7 +7,16 @@ app = create_app()
 
 def test_get():
     with app.test_client() as c:
-        rv = c.get('/cms/product/3')
+        # rv = c.get('/cms/product/1')
+        rv = c.get('/v1/product/1')
+        json_data = rv.get_json()
+        pprint(json_data)
+        assert rv.status_code == 200
+
+
+def test_get_recent():
+    with app.test_client() as c:
+        rv = c.get('/v1/product/recent')
         json_data = rv.get_json()
         pprint(json_data)
         assert rv.status_code == 200
@@ -84,7 +93,8 @@ def test_update():
                 {'detail': 'm国', 'name': '产地'},
                 {'detail': '10day', 'name': '保质期'}
             ],
-            'theme_ids': [1, 5]
+            'theme_ids': [1, 5],
+            'desc_img_ids': [34, 39, 44, 50, 56, 9, 17, 24, 33, 38, 47, 52, 58]
         })
         json_data = rv.get_json()
         pprint(json_data)

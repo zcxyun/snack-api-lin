@@ -1,10 +1,12 @@
 from flask import current_app
-from lin.exception import ParameterException
+from lin import db
+from lin.exception import ParameterException, NotFound
 from sqlalchemy import Column, Integer, String, DECIMAL, SmallInteger, Text, DateTime
 
 from app.libs.enum import OrderStatus
 from app.libs.utils import datetime_format
 from app.models.base import Base
+from app.models.member import Member
 
 
 class Order(Base):
@@ -26,7 +28,7 @@ class Order(Base):
 
     def _set_fields(self):
         self._fields = ['order_no', 'total_price', 'total_count', 'order_status', 'order_status_desc',
-                        'snap_img', 'snap_name', 'snap_items', 'snap_address']
+                        'snap_img', 'snap_name', 'snap_items', 'snap_address',  'pay_time_format', 'create_time']
 
     @property
     def order_status_enum(self):
@@ -67,3 +69,39 @@ class Order(Base):
         if not self.pay_time:
             return '未支付'
         return datetime_format(self.pay_time)
+
+    @classmethod
+    def get_paginate_with_member(cls, start, count, q, soft=True, *, err_msg=None):
+        statement = db.session.query(cls, Member).filter_by(soft=soft).filter(cls.member_id == Member.id)
+        if q:
+            q = '%{}%'.format(q)
+            statement = statement.filter(cls.order_no.ilike(q))
+        total = statement.count()
+        res = statement.order_by(cls.id.desc()).offset(start).limit(count).all()
+        if not res:
+            if err_msg is None:
+                return []
+            else:
+                raise NotFound(msg=err_msg)
+        models = cls._combine_data(res)
+        return {
+            'start': start,
+            'count': count,
+            'total': total,
+            'models': models
+        }
+
+    @classmethod
+    def _combine_data(cls, data):
+        res = []
+        for i in data:
+            model = cls._combine_single_data(*i)
+            res.append(model)
+        return res
+
+    @classmethod
+    def _combine_single_data(cls, order, member):
+        order.member = member.nickName
+        order.member_avatarurl = member.avatarUrl
+        order._fields.extend(['member', 'member_avatarurl'])
+        return order

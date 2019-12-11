@@ -5,6 +5,7 @@ from lin.redprint import Redprint
 
 from app.libs.utils import paginate
 from app.models.product import Product
+from app.models.product_image import ProductImage
 from app.models.product_property import ProductProperty
 from app.models.theme_product import ThemeProduct
 from app.validators.cms.product_forms import ProductContent, validate_product_props
@@ -17,12 +18,17 @@ def get(pid):
     model = Product.get_model(pid, err_msg='相关产品未添加或已隐藏')
     product_propertes = ProductProperty.get_by_product_id(model.id)
     product_themes = Product.get_themes_by_id(model.id)
+    product_desc_imgs = ProductImage.get_by_product_id_with_image(model.id)
     if product_propertes:
         model.params = product_propertes
         model._fields.append('params')
     if product_themes:
         model.theme_ids = [item.id for item in product_themes]
         model._fields.append('theme_ids')
+    if product_desc_imgs:
+        model.desc_imgs = product_desc_imgs
+        model._fields.append('desc_imgs')
+    model.hide('delete_time', 'category')
     return jsonify(model)
 
 
@@ -77,8 +83,14 @@ def create():
         if props:
             for prop in props:
                 ProductProperty.create(**prop, product_id=product.id)
-        if form.theme_ids:
-            ThemeProduct.add_themes(form.theme_ids.data, product.id)
+        if form.theme_ids.data:
+            for theme_id in form.theme_ids.data:
+                ThemeProduct.create(theme_id=theme_id, product_id=product.id)
+        if form.desc_img_ids.data:
+            order = 1
+            for img_id in form.desc_img_ids.data:
+                ProductImage.create(img_id=img_id, order=order, product_id=product.id)
+                order += 1
     return Success(msg='商品添加成功')
 
 
@@ -90,8 +102,10 @@ def update(pid):
         Product.edit_model(pid, form.data, commit=False, err_msg=['相同名字商品已存在', '相关商品不存在或已隐藏'])
         if props:
             ProductProperty.edit_properties(pid, props)
-        if form.theme_ids:
+        if form.theme_ids.data:
             ThemeProduct.edit_themes(form.theme_ids.data, pid)
+        if form.desc_img_ids.data:
+            ProductImage.edit_imgs_for_product(pid, form.desc_img_ids.data)
     return Success('商品更新成功')
 
 

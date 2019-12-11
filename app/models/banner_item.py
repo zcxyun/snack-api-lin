@@ -37,6 +37,20 @@ class BannerItem(Base):
         return desc
 
     @classmethod
+    def get_by_banner_id(cls, bid, soft=True, *, err_msg=None):
+        res = db.session.query(cls, File.path).filter_by(soft=soft).filter(
+            cls.banner_id == bid,
+            cls.img_id == File.id
+        ).order_by(cls.id.desc()).all()
+        if not res:
+            if err_msg is None:
+                return []
+            else:
+                raise NotFound(msg=err_msg)
+        model = cls._add_img_to_models(res)
+        return model
+
+    @classmethod
     def get_paginate_models(cls, start, count, q=None, type=0, soft=True, *, err_msg=None):
         type_enum = cls.validate_banner_item_type(type)
         if q:

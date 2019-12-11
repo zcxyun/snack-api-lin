@@ -13,6 +13,14 @@ def test_get_banner():
         assert rv.status_code == 200
 
 
+def test_get_with_banner_item():
+    with app.test_client() as c:
+        rv = c.get('/v1/banner/5/banner-item')
+        json_data = rv.get_json()
+        pprint(json_data)
+        assert rv.status_code == 200
+
+
 def test_get_paginate_banner():
     with app.test_client() as c:
         rv = c.get('/cms/banner/paginate')

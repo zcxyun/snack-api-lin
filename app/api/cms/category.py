@@ -24,7 +24,7 @@ def get_all():
 
 
 @category_api.route('/all/products', methods=['GET'])
-def get_with_products():
+def get_all_with_products():
     models = Category.get_all_with_products(err_msg='相关种类和产品不存在')
     # res = []
     # for model in models:

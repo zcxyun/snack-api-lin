@@ -41,7 +41,7 @@ class Theme(Base):
         res = db.session.query(cls, topic_img.path, head_img.path).filter(
             cls.topic_img_id == topic_img.id,
             cls.head_img_id == head_img.id,
-        ).filter_by(soft=soft).all()
+        ).filter_by(soft=soft).order_by(cls.id.desc()).all()
         if not res:
             if err_msg is None:
                 return None
@@ -75,6 +75,35 @@ class Theme(Base):
             'total': total,
             'models': models
         }
+
+    @classmethod
+    def get_with_products(cls, tid, soft=True, *, err_msg=None):
+        from app.models.theme_product import ThemeProduct
+        from app.models.product import Product
+        head_img = aliased(File)
+        product_img = aliased(File)
+        data = db.session.query(cls, head_img, product_img, ThemeProduct, Product).filter_by(soft=soft).filter(
+            cls.head_img_id == head_img.id,
+            Product.img_id == product_img.id,
+            cls.id == ThemeProduct.theme_id,
+            ThemeProduct.product_id == Product.id,
+            cls.id == tid
+        ).all()
+        if not data:
+            if err_msg is None:
+                return []
+            else:
+                raise NotFound(msg=err_msg)
+        res = []
+        for theme, head_img, product_img, _, product in data:
+            theme.products = getattr(theme, 'products', [])
+            theme.head_img = cls.get_file_url(head_img.path)
+            product.image = cls.get_file_url(product_img.path)
+            theme.products.append(product)
+            res.append(theme)
+        res = res[0]
+        res._fields.extend(['head_img', 'products'])
+        return res
 
     @classmethod
     def _combine_single_data(cls, model, topic_img, head_img):

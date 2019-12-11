@@ -18,6 +18,7 @@ class ProductContent(Form):
     img_id = IntegerField(validators=[DataRequired(message='商品图片ID不能为空'),
                                            NumberRange(min=1, message='商品图片ID必须大于0')])
     theme_ids = FieldList(IntegerField(validators=[NumberRange(min=1, message='主题ID必须大于0'), Optional()]))
+    desc_img_ids = FieldList(IntegerField(validators=[NumberRange(min=1, message='商品描述图片ID必须大于0'), Optional()]))
 
 
 class ProductProp(WTForm):

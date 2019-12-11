@@ -12,6 +12,7 @@ member_api = Redprint('member')
 @member_login_required
 def get():
     member = get_current_member()
+    member.hide('gender_str')
     return jsonify(member)
 
 

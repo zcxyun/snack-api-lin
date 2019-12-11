@@ -21,6 +21,8 @@ def create_cms():
     from .product import product_api
     from .category import category_api
     from .member import member_api
+    from .address import address_api
+    from .order import order_api
     admin_api.register(cms)
     user_api.register(cms)
     log_api.register(cms)
@@ -32,4 +34,6 @@ def create_cms():
     product_api.register(cms)
     category_api.register(cms)
     member_api.register(cms)
+    address_api.register(cms)
+    order_api.register(cms)
     return cms

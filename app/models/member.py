@@ -18,7 +18,7 @@ class Member(Base):
                     comment='当前用户是否为激活状态，非激活状态默认失去用户权限 ; 1 -> 激活 | 0 -> 非激活')
 
     def _set_fields(self):
-        self._fields = ['nickName', 'avatarUrl', 'gender_str', 'country', 'province', 'city']
+        self._fields = ['nickName', 'avatarUrl', 'gender_str', 'country', 'province', 'city', 'gender']
 
     def is_active(self):
         return self.active == MemberActive.ACTIVE.value
