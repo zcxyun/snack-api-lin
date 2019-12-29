@@ -30,6 +30,28 @@ def get_paginate():
     start, count = paginate()
     q = request.args.get('q', None)
     res = Product.get_paginate_models_with_img(start, count, q, err_msg='相关商品不存在')
+    for model in res['models']:
+        model.hide('img_id', 'delete_time', 'category_id')
+    return jsonify(res)
+
+
+@product_api.route('/paginate/by/category/<int:cid>', methods=['GET'])
+def get_paginate_by_category(cid):
+    start, count = paginate()
+    q = request.args.get('q', None)
+    res = Product.get_paginate_models(start, count, q, cid, err_msg='相关商品不存在')
+    for model in res['models']:
+        model.hide('img_id', 'delete_time', 'category_id')
+    return jsonify(res)
+
+
+@product_api.route('/paginate/by/theme/<int:tid>', methods=['GET'])
+def get_paginate_by_theme(tid):
+    start, count = paginate()
+    q = request.args.get('q', None)
+    res = Product.get_paginate_models(start, count, q, tid=tid, err_msg='相关商品不存在')
+    for model in res['models']:
+        model.hide('img_id', 'delete_time', 'category_id')
     return jsonify(res)
 
 

@@ -51,7 +51,7 @@ def test_create():
     with app.test_client() as c:
         rv = c.post('/cms/category', json={
             'name': '蔬菜',
-            'description': '蔬菜世界',
+            'summary': '蔬菜世界',
             'img_id': 2
         })
         json_data = rv.get_json()
@@ -63,7 +63,7 @@ def test_update():
     with app.test_client() as c:
         rv = c.put('/cms/category/1', json={
             'name': '炒货',
-            'description': '炒货天堂',
+            'summary': '炒货天堂',
             'img_id': 3
         })
         json_data = rv.get_json()

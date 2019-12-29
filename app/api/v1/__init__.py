@@ -11,6 +11,10 @@ from app.api.v1.token import token_api
 from app.api.v1.banner import banner_api
 from app.api.v1.theme import theme_api
 from app.api.v1.category import category_api
+from app.api.v1.keyword import keyword_api
+from app.api.v1.like import like_api
+from app.api.v1.comment import comment_api
+from app.api.v1.cart import cart_api
 
 
 def create_v1():
@@ -22,4 +26,8 @@ def create_v1():
     banner_api.register(bp_v1)
     theme_api.register(bp_v1)
     category_api.register(bp_v1)
+    keyword_api.register(bp_v1)
+    like_api.register(bp_v1)
+    comment_api.register(bp_v1)
+    cart_api.register(bp_v1)
     return bp_v1

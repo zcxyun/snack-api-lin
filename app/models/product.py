@@ -61,7 +61,11 @@ class Product(Base):
         if cid:
             statement = statement.filter_by(category_id=cid)
         if tid:
-            statement = statement.filter_by(theme_id=tid)
+            statement = statement.filter(
+                cls.id == ThemeProduct.product_id,
+                ThemeProduct.theme_id == Theme.id,
+                Theme.id == tid
+            )
         if q:
             q = '%{}%'.format(q)
             statement = statement.filter(cls.name.ilike(q))

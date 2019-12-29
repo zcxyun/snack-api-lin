@@ -18,7 +18,7 @@ class Category(Base):
         self._exclude = ['create_time', 'update_time']
 
     @classmethod
-    def get_with_products(cls, cid, count=10, soft=True, *, err_msg=None):
+    def get_with_products(cls, cid, count=9, soft=True, *, err_msg=None):
         from app.models.product import Product
         cate_img = aliased(File)
         prod_img = aliased(File)
@@ -38,7 +38,7 @@ class Category(Base):
         return model
 
     @classmethod
-    def get_all_with_products(cls, count=10, soft=True, *, err_msg=None):
+    def get_all_with_products(cls, count=9, soft=True, *, err_msg=None):
         from app.models.product import Product
         cate_img = aliased(File)
         prod_img = aliased(File)

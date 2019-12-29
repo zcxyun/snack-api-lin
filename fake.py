@@ -7,6 +7,7 @@ from app.app import create_app
 from app.models.book import Book
 from lin.db import db
 
+from app.models.cart import Cart
 from app.models.product_property import ProductProperty
 from app.models.theme_product import ThemeProduct
 
@@ -95,6 +96,13 @@ def add_theme_product():
         ThemeProduct.create(**item)
 
 
+# 购物车相关
+def clear_cart():
+    models = Cart.query.filter_by(member_id=1).all()
+    for model in models:
+        model.hard_delete()
+
+
 with app.app_context():
     with db.auto_commit():
-        add_theme_product()
+        clear_cart()

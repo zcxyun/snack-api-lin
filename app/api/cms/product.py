@@ -67,10 +67,10 @@ def products_with_themes(products):
         model._fields.append('themes')
 
 
-@product_api.route('/recent', methods=['GET'])
-def get_recent():
-    models = Product.get_recent(current_app.config.get('RECENT', 15), err_msg='相关产品未添加或已隐藏')
-    return jsonify(models)
+# @product_api.route('/recent', methods=['GET'])
+# def get_recent():
+#     models = Product.get_recent(current_app.config.get('RECENT', 15), err_msg='相关产品未添加或已隐藏')
+#     return jsonify(models)
 
 
 @product_api.route('', methods=['POST'])

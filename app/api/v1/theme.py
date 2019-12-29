@@ -6,6 +6,12 @@ from app.models.theme import Theme
 theme_api = Redprint('theme')
 
 
+@theme_api.route('/<int:tid>', methods=['GET'])
+def get(tid):
+    model = Theme.get_model(tid, err_msg='相关主题不存在')
+    return jsonify(model)
+
+
 @theme_api.route('/all', methods=['GET'])
 def get_all():
     models = Theme.get_all_models(err_msg='相关主题不存在')

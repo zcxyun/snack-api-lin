@@ -38,30 +38,30 @@ def test_get_with_products():
         assert rv.status_code == 200
 
 
-def test_create():
-    with app.test_client() as c:
-        rv = c.post('/cms/theme', json={
-            'name': '炒货天堂',
-            'summary': '炒货无敌',
-            'topic_img_id': 2,
-            'head_img_id': 2
-        })
-        json_data = rv.get_json()
-        pprint(json_data)
-        assert rv.status_code == 201
+# def test_create():
+#     with app.test_client() as c:
+#         rv = c.post('/cms/theme', json={
+#             'name': '炒货天堂',
+#             'summary': '炒货无敌',
+#             'topic_img_id': 2,
+#             'head_img_id': 2
+#         })
+#         json_data = rv.get_json()
+#         pprint(json_data)
+#         assert rv.status_code == 201
 
 
-def test_update():
-    with app.test_client() as c:
-        rv = c.put('/cms/theme/2', json={
-            'name': '水果世界',
-            'summary': '美味水果世界',
-            'topic_img_id': 1,
-            'head_img_id': 1
-        })
-        json_data = rv.get_json()
-        pprint(json_data)
-        assert rv.status_code == 201
+# def test_update():
+#     with app.test_client() as c:
+#         rv = c.put('/cms/theme/2', json={
+#             'name': '水果世界',
+#             'summary': '美味水果世界',
+#             'topic_img_id': 1,
+#             'head_img_id': 1
+#         })
+#         json_data = rv.get_json()
+#         pprint(json_data)
+#         assert rv.status_code == 201
 
 
 def test_hide():
