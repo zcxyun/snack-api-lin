@@ -11,6 +11,7 @@ class MemberInfoForm(Form):
     country = StringField(default='')
     province = StringField(default='')
     city = StringField(default='')
+    language = StringField(default='')
 
 
 class MemberLoginForm(MemberInfoForm):

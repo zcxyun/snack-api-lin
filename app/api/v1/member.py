@@ -28,6 +28,7 @@ def update():
         country=form.country.data,
         province=form.province.data,
         city=form.city.data,
+        language=form.language.data,
         commit=True
     )
     return Success(msg='微信用户信息已更改')

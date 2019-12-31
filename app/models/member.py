@@ -8,12 +8,13 @@ from .base import Base
 class Member(Base):
     id = Column(Integer, primary_key=True, comment='会员id')
     openid = Column(String(100), comment='微信用户openid')
-    nickName = Column(String(30), nullable=False, comment='会员名')
+    nickName = Column(String(30), nullable=False, comment='会员昵称')
     avatarUrl = Column(String(500), comment='会员头像')
     gender = Column(SmallInteger, default=0, comment='会员性别; 0, 未知 1, 男性 2, 女性')
     country = Column(String(30), comment='会员所在国家')
-    province = Column(String(30), comment='会员所在省')
-    city = Column(String(30), comment='会员所在市')
+    province = Column(String(30), comment='会员所在省份')
+    city = Column(String(30), comment='会员所在城市')
+    language = Column(String(10), comment='显示 country，province，city 所用的语言')
     active = Column(SmallInteger, default=1,
                     comment='当前用户是否为激活状态，非激活状态默认失去用户权限 ; 1 -> 激活 | 0 -> 非激活')
 

@@ -15,12 +15,12 @@ def get_comments_of_product(pid):
 
 
 @comment_api.route('', methods=['POST'])
-# @member_login_required
+@member_login_required
 def create_comment():
     form = CommentContent().validate_for_api()
-    # member = get_current_member()
+    member = get_current_member()
     data = {
-        'member_id': 1,
+        'member_id': member.id,
         **form.data
     }
     Comment.add(data, err_msg='相同内容已经评论过了')

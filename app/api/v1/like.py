@@ -8,24 +8,24 @@ like_api = Redprint('like')
 
 
 @like_api.route('/product/<int:pid>', methods=['PUT'])
-# @member_login_required
+@member_login_required
 def like(pid):
-    # member = get_current_member()
-    Like.like(pid, 1)
+    member = get_current_member()
+    Like.like(pid, member.id)
     return Success(msg='点赞成功')
 
 
 @like_api.route('/cancel/product/<int:pid>', methods=['PUT'])
-# @member_login_required
+@member_login_required
 def like_cancel(pid):
-    # member = get_current_member()
-    Like.unlike(pid, 1)
+    member = get_current_member()
+    Like.unlike(pid, member.id)
     return Success(msg='取消点赞成功')
 
 
 @like_api.route('/info/product/<int:pid>', methods=['GET'])
-# @member_login_required
+@member_login_required
 def get_info(pid):
-    # member = get_current_member()
-    info = Like.get_like(pid, 1)
+    member = get_current_member()
+    info = Like.get_like(pid, member.id)
     return info
