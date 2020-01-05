@@ -11,5 +11,5 @@ member_api = Redprint('member')
 def get_paginate():
     start, count = paginate()
     q = request.args.get('q', None)
-    models = Member.get_paginate_models(start, count, q, err_msg='相关会员不存在')
+    models = Member.get_paginate_models(start, count, q, throw=True)
     return models

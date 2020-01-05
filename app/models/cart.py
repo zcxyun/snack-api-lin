@@ -54,6 +54,7 @@ class Cart(Base):
         ids = [item.product_id for item in models]
         if len(models) >= 10 and product_id not in ids:
             raise ParameterException(msg='购物车最多放10种商品')
+        Product.check_stock(product_id, count)
         model = cls.query.filter_by(product_id=product_id, member_id=member_id, soft=True).first()
         if model:
             model.update(count=count, selected=selected, commit=True)
@@ -63,6 +64,7 @@ class Cart(Base):
 
     @classmethod
     def edit_some(cls, member_id, cart_contents):
+        Product.check_stocks(cart_contents)
         o_models = cls.query.filter_by(member_id=member_id).all()
         o_ids = set([item.product_id for item in o_models])
         ids = set([item['product_id'] for item in cart_contents])

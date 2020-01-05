@@ -23,5 +23,5 @@ def create_comment():
         'member_id': member.id,
         **form.data
     }
-    Comment.add(data, err_msg='相同内容已经评论过了')
+    Comment.add(data, throw=True)
     return Success(msg='评论成功')

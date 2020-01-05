@@ -1,10 +1,11 @@
 import json
 import uuid
+from decimal import Decimal
 
 from lin import db
+from lin.exception import NotFound, Failed
 
 from app.libs.enum import OrderStatus
-from app.libs.error_code import OrderNotFound, ProductNotFound, OrderNotPay
 from app.models.member_address import MemberAddress
 from app.models.order import Order
 from app.models.order_product import OrderProduct
@@ -13,134 +14,123 @@ from app.models.product import Product
 
 class OrderService:
 
-    def __init__(self, mid=None, o_products=None):
+    def __init__(self, mid=None, products=None):
         if mid:
             self.mid = mid
-        if o_products:
-            self.o_products = o_products
-            self.products = self._get_products_by_order(o_products)
+        if products:
+            self.products = products
 
-    def check_order_stock(self, order_id):
-        self.o_products = OrderProduct.query.filter_by(order_id=order_id).first_or_404(OrderNotFound())
-        self.products = self._get_products_by_order(self.o_products)
-        status = self._get_order_status()
-        return status
-
-    def send_tpl_msg(self, order_id, jump_page=''):
-        order = Order.query.get_or_404(order_id, OrderNotFound())
-        if order.order_status_enum != OrderStatus.PAID:
-            raise OrderNotPay()
-        with db.auto_commit():
-            order.order_status_enum = OrderStatus.DELIVERED
-            db.session.add(order)
+    def _get_o_products(self):
+        product_ids = [item['product_id'] for item in self.products if 'product_id' in item]
+        o_products = Product.get_models_by_ids_with_img(product_ids, with_for_update=True, throw=True)
+        return o_products
 
     def place(self):
-        status = self._get_order_status()
-        if not status['pass']:
-            status['order_id'] = -1
-            return status
-        order_snap = self._snap_order()
-        status = self._create_order_by_trans(order_snap)
-        status['pass'] = True
-        return status
-
-    @staticmethod
-    def _get_products_by_order(o_products):
-        product_ids = [item.product_id for item in o_products]
-        products = Product.query.filter(Product.id.in_(product_ids), Product.status != 0).all()
-        return products
-
-    def _get_order_status(self):
-        status = {
-            'pass': True,
-            'order_price': 0,
-            'p_status_array': []
-        }
-        for o_product in self.o_products:
-            product = self.check_product_exist(o_product['product_id'])
-            p_status = self._get_product_status(o_product, product)
-            if not p_status['have_stock']:
-                status['pass'] = False
-            status['order_price'] += p_status['total_price']
-            status['p_status_array'].append(p_status)
-        return status
-
-    def check_product_exist(self, product_id):
-        product_exist = filter(lambda x: x.id == product_id, self.products)
-        if product_exist:
-            product = product_exist[0]
-        else:
-            raise ProductNotFound(error_code=2000, msg='id为{}的商品不存在，订单创建失败'.format(product_id))
-        return product
-
-    def _get_product_status(self, o_product, product):
-        p_status = dict()
-        p_status['id'] = product.id
-        p_status['name'] = product.name
-        p_status['count'] = o_product['count']
-        p_status['total_price'] = product.price * o_product['count']
-        p_status['have_stock'] = product.stock >= o_product['count']
-        return p_status
+        if not self.mid or not self.products:
+            raise Failed(msg='缺少会员ID和商品参数, 下单失败')
+        with db.auto_commit():
+            self.o_products = self._get_o_products()
+            order_snap = self._snap_order()
+            res = self._create_order(order_snap)
+        return res
 
     def _snap_order(self):
         snap = {
-            'order_price': 0,
+            'total_price': 0,
             'total_count': 0,
-            'p_status': [],
+            'snap_products': [],
             'snap_address': json.dumps(self._get_member_address()),
-            'snap_name': self.products[0].name,
-            'snap_img': self.products[0].main_img_url
+            'snap_name': ', '.join([item.name for item in self.o_products]),
+            'snap_img': self.o_products[0].image
         }
-        if len(self.products) > 1:
-            snap['snap_name'] += '等'
-        for i in range(len(self.products)):
-            product = self.products[i]
-            o_product = self.o_products[i]
-            p_status = self._snap_product(product, o_product['count'])
-            snap['order_price'] += p_status['total_price']
+        for product in self.products:
+            o_product = self.check_product_exist(product['product_id'])
+            p_status = self._get_product_status(product, o_product)
+            snap['total_price'] += Decimal(p_status['total_price'])
             snap['total_count'] += p_status['count']
-            snap['p_status'].append(p_status)
+            snap['snap_products'].append(p_status)
+        snap['snap_products'] = json.dumps(snap['snap_products'])
         return snap
 
-    def _get_member_address(self):
-        user_address = MemberAddress.get_by_member_id(self.mid, err_msg="相关地址不存在")
-        return dict(user_address)
+    def check_product_exist(self, product_id):
+        product_exist = list(filter(lambda x: x.id == product_id, self.o_products))
+        if product_exist:
+            product = product_exist[0]
+        else:
+            raise NotFound(msg='id为{}的商品不存在，订单创建失败'.format(product_id))
+        return product
 
-    def _snap_product(self, product, o_count):
+    def _get_product_status(self, product, o_product):
+        total_price = str((o_product.price * product['count']).quantize(Decimal('0.00')))
         p_status = dict()
-        p_status['id'] = product.id
-        p_status['name'] = product.name
-        p_status['main_img_url'] = product.main_img_url
-        p_status['total_price'] = product.price * o_count
-        p_status['price'] = product.price
-        p_status['count'] = o_count
+        p_status['id'] = o_product.id
+        p_status['name'] = o_product.name
+        p_status['count'] = product['count']
+        p_status['price'] = o_product.price_str
+        p_status['total_price'] = total_price
+        have_stock = o_product.stock >= product['count']
+        if not have_stock:
+            raise Failed(msg='{}的库存不足, 下单失败'.format(o_product.name))
+        stock = o_product.stock - product['count']
+        o_product.update(stock=stock)
         return p_status
 
-    def _create_order_by_trans(self, order_snap):
-        with db.auto_commit():
-            order = Order()
-            order.member_id = self.mid
-            order.order_no = self.get_order_no()
-            order.total_price = order_snap['order_price']
-            order.total_count = order_snap['total_count']
-            order.snap_name = order_snap['snap_name']
-            order.snap_img = order_snap['snap_img']
-            order.snap_address = order_snap['snap_address']
-            order.snap_items = json.dumps(order_snap['p_status'])
-            db.session.add(order)
-        with db.auto_commit():
-            for item in self.o_products:
-                order_product = OrderProduct()
-                order_product.order_id = order.id
-                order_product.product_id = item['product_id']
-                order_product.count = item['count']
-                db.session.add(order_product)
+    def _create_order(self, order_snap):
+        order_snap['member_id'] = self.mid
+        order_snap['order_no'] = self.get_order_no()
+        order = Order.create(**order_snap)
+        db.session.flush()
+        for item in self.products:
+            OrderProduct.create(order_id=order.id, product_id=item['product_id'], count=item['count'])
         return {
             'order_no': order.order_no,
             'order_id': order.id,
-            'create_time': order.format_create_time
+            'create_time': order.create_time
         }
 
     @staticmethod
     def get_order_no():
         return str(uuid.uuid1()).replace('-', '')
+
+    def check_order_stock(self, order_id):
+        o_products, ids_products, _ = self.get_stock_data(order_id)
+        res = list(filter(lambda x: x.stock < ids_products[x.id].count, o_products))
+        if res:
+            return False
+        return True
+
+    def _get_member_address(self):
+        member_address = MemberAddress.get_by_member_id(self.mid)
+        return dict(member_address)
+
+    def get_stock_data(self, order_id):
+        order_products = OrderProduct.get_by_order_id(order_id, throw=True)
+        product_ids = [item.product_id for item in order_products]
+        o_products = Product.get_models_by_ids(product_ids, throw=True)
+        ids_products = {item.product_id: item for item in order_products}
+        return o_products, ids_products, order_products
+
+    def cancel(self, member_id, order_id):
+        order = Order.query.filter_by(soft=True, member_id=member_id, id=order_id).filter(
+            Order.order_status == OrderStatus.UNPAID.value
+        ).first()
+        if not order:
+            raise NotFound(msg='订单不存在或订单不是待支付状态')
+        with db.auto_commit():
+            order.update(order_status=OrderStatus.CANCEL.value)
+            o_products, ids_products, order_products = self.get_stock_data(order_id)
+            for o_product in o_products:
+                o_stock = o_product.stock + ids_products[o_product.id]['count']
+                o_product.update(stock=o_stock)
+            for item in order_products:
+                item.delete()
+        return True
+
+    def confirm(self, member_id, order_id):
+        order = Order.query.filter_by(soft=True, member_id=member_id, id=order_id).filter(
+            Order.order_status == OrderStatus.UNRECEIPTED.value
+        ).first()
+        if not order:
+            raise NotFound(msg='订单不存在或订单不是待收货状态')
+        order.update(order_status=OrderStatus.DONE.value, commit=True)
+        return True

@@ -15,13 +15,13 @@ class ProductProperty(Base):
         self._fields = ['name', 'detail']
 
     @classmethod
-    def get_by_product_id(cls, product_id, soft=True, *, err_msg=None):
+    def get_by_product_id(cls, product_id, soft=True, *, throw=False):
         models = cls.query.filter_by(product_id=product_id, soft=soft).all()
         if not models:
-            if err_msg is None:
+            if not throw:
                 return []
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关商品属性不存在')
         return models
 
     @classmethod

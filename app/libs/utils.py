@@ -17,10 +17,6 @@ def datetime_format(dt=None, fmt='%Y-%m-%d %H:%M:%S'):
     return dt.strftime(fmt)
 
 
-def get_timestamp(fmt='%Y-%m-%d %H:%M:%S'):
-    return time.strftime(fmt, time.localtime(time.time()))
-
-
 def get_count_from_query():
     count_default = current_app.config.get('COUNT_DEFAULT')
     count = int(request.args.get('count', count_default if count_default else 1))

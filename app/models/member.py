@@ -1,7 +1,9 @@
+from lin import db
 from lin.exception import NotFound
 from sqlalchemy import Column, String, Integer, SmallInteger
 
 from app.libs.enum import MemberActive
+from app.models.cart import Cart
 from .base import Base
 
 
@@ -30,7 +32,7 @@ class Member(Base):
         return description[self.gender]
 
     @classmethod
-    def get_paginate_models(cls, start, count, q=None, soft=True, *, err_msg=None):
+    def get_paginate_models(cls, start, count, q=None, soft=True, *, throw=False):
         """分页查询会员模型(支持搜索)"""
         statement = cls.query.filter_by(soft=soft)
         if q:
@@ -39,10 +41,10 @@ class Member(Base):
         total = statement.count()
         models = statement.order_by(cls.id.desc()).offset(start).limit(count).all()
         if not models:
-            if err_msg is None:
+            if not throw:
                 return []
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关会员不存在')
         return {
             'start': start,
             'count': count,

@@ -29,12 +29,12 @@ class Comment(Base):
         return comments
 
     @classmethod
-    def add(cls, data, commit=True, *, err_msg=None):
+    def add(cls, data, commit=True, *, throw=False):
         model = cls.query.filter_by(**data, soft=True).first()
         if model:
-            if err_msg is None:
+            if not throw:
                 return False
             else:
-                raise ParameterException(msg=err_msg)
+                raise ParameterException(msg='相同内容已经评论过了')
         cls.create(**data, commit=commit)
         return True

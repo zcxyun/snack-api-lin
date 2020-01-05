@@ -24,7 +24,7 @@ class OrderStatus(Enum):
     UNRECEIPTED = 2
     DONE = 3
     CANCEL = -1
-    PAID_BUT_INSUFFICIENT_STOCK = -2
+    # PAID_BUT_INSUFFICIENT_STOCK = -2
 
 
 class LoginMethod(Enum):

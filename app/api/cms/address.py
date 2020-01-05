@@ -11,5 +11,5 @@ address_api = Redprint('address')
 def get_paginate():
     start, count = paginate()
     q = request.args.get('q', None)
-    models = MemberAddress.get_paginate_models(start, count, q, err_msg='相关地址不存在')
+    models = MemberAddress.get_paginate_models(start, count, q, throw=True)
     return models

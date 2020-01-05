@@ -37,21 +37,21 @@ class BannerItem(Base):
         return desc
 
     @classmethod
-    def get_by_banner_id(cls, bid, soft=True, *, err_msg=None):
+    def get_by_banner_id(cls, bid, soft=True, *, throw=False):
         res = db.session.query(cls, File.path).filter_by(soft=soft).filter(
             cls.banner_id == bid,
             cls.img_id == File.id
         ).order_by(cls.id.desc()).all()
         if not res:
-            if err_msg is None:
+            if not throw:
                 return []
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关横幅不存在')
         model = cls._add_img_to_models(res)
         return model
 
     @classmethod
-    def get_paginate_models(cls, start, count, q=None, type=0, soft=True, *, err_msg=None):
+    def get_paginate_models(cls, start, count, q=None, type=0, soft=True, *, throw=False):
         type_enum = cls.validate_banner_item_type(type)
         if q:
             q = '%{}%'.format(q)
@@ -82,10 +82,10 @@ class BannerItem(Base):
         total = statement.count()
         res = statement.order_by(cls.id.desc()).offset(start).limit(count).all()
         if not res:
-            if err_msg is None:
+            if not throw:
                 return {}
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关横幅未添加或已隐藏')
         models = cls._combine_data(type_enum, res)
         return {
             'start': start,
@@ -139,23 +139,23 @@ class BannerItem(Base):
             raise ParameterException(msg='导向类型不正确')
 
     @classmethod
-    def add_model(cls, data, commit=True, *, err_msg=None):
+    def add_model(cls, data, commit=True, *, throw=False):
         model = cls.query.filter_by(**data).first()
         if model:
-            if err_msg is None:
+            if not throw:
                 return False
             else:
-                raise ParameterException(msg=err_msg)
+                raise ParameterException(msg='相关横幅子项目已存在或已隐藏')
         cls.create(**data, commit=True)
         return True
 
     @classmethod
-    def edit_model(cls, id, data, commit=True, *, err_msg=None):
+    def edit_model(cls, id, data, commit=True, *, throw=False):
         model = cls.query.filter_by(id=id, soft=True).first()
         if not model:
-            if err_msg is None:
+            if not throw:
                 return False
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关横幅子项目未添加或已隐藏')
         model.update(**data, commit=True)
         return True

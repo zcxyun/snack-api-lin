@@ -11,5 +11,5 @@ order_api = Redprint('order')
 def get_paginate():
     start, count = paginate()
     q = request.args.get('q', None)
-    res = Order.get_paginate_with_member(start, count, q, err_msg='相关订单不存在')
+    res = Order.get_paginate_with_member(start, count, q, throw=True)
     return jsonify(res)

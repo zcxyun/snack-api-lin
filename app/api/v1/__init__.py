@@ -16,6 +16,7 @@ from app.api.v1.like import like_api
 from app.api.v1.comment import comment_api
 from app.api.v1.cart import cart_api
 from app.api.v1.address import address_api
+from app.api.v1.order import order_api
 
 
 def create_v1():
@@ -32,4 +33,5 @@ def create_v1():
     comment_api.register(bp_v1)
     cart_api.register(bp_v1)
     address_api.register(bp_v1)
+    order_api.register(bp_v1)
     return bp_v1

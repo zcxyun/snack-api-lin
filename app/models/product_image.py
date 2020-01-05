@@ -26,16 +26,16 @@ class ProductImage(Base):
         return res
 
     @classmethod
-    def get_by_product_id_with_image(cls, product_id, soft=True, *, err_msg=None):
+    def get_by_product_id_with_image(cls, product_id, soft=True, *, throw=False):
         res = db.session.query(cls, File.path).filter_by(soft=soft).filter(
             cls.img_id == File.id,
             cls.product_id == product_id
         )
         if not res:
-            if err_msg is None:
+            if not throw:
                 return []
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关商品详细图片列表不存在')
         models = cls._add_img_to_models(res)
         return models
 

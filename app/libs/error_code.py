@@ -15,6 +15,20 @@ class GenderStatusException(APIException):
     error_code = 20000
 
 
+# 产品相关
+class ProductUnderStock(APIException):
+    code = 400
+    error_code = 30000
+    msg = '相关商品库存不足'
+
+
+# 订单相关
+class OrderNotPay(APIException):
+    code = 400
+    error_code = 8000
+    msg = '还没付款呢，想干嘛？或者你已经更新过订单了，不要再刷了'
+
+
 # 微信相关
 class WxCodeException(APIException):
     code = 400
@@ -22,28 +36,17 @@ class WxCodeException(APIException):
     error_code = 90000
 
 
-# 产品相关
-class ProductNotFound(APIException):
-    code = 404
-    msg = '相关产品不存在'
+class WxAccessTokenException(APIException):
+    code = 500
+    error_code = 9001
+    msg = '获取微信AccessToken异常'
 
 
-# 订单相关
-class OrderNotPay(APIException):
-    code = 400
-    msg = '订单还未支付'
-    error_code = 80000
+class WxTplMsgException(APIException):
+    code = 500
+    error_code = 9002
+    msg = '模板消息发送失败'
 
 
-class OrderNotFound(APIException):
-    code = 404
-    msg = '订单未找到'
-    error_code = 80010
 
-
-# 地址相关
-class AddressNotFound(APIException):
-    code = 404
-    msg = '收货地址未找到'
-    error_code = 70010
 

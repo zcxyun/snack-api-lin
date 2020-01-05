@@ -18,7 +18,7 @@ class Category(Base):
         self._exclude = ['create_time', 'update_time']
 
     @classmethod
-    def get_with_products(cls, cid, count=9, soft=True, *, err_msg=None):
+    def get_with_products(cls, cid, count=9, soft=True, *, throw=False):
         from app.models.product import Product
         cate_img = aliased(File)
         prod_img = aliased(File)
@@ -29,16 +29,16 @@ class Category(Base):
             Product.img_id == prod_img.id
         ).all()
         if not res:
-            if err_msg is None:
+            if not throw:
                 return []
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关种类不存在')
         model = cls._combine_data(res)[0]
         model.products = model.products[0:count]
         return model
 
     @classmethod
-    def get_all_with_products(cls, count=9, soft=True, *, err_msg=None):
+    def get_all_with_products(cls, count=9, soft=True, *, throw=False):
         from app.models.product import Product
         cate_img = aliased(File)
         prod_img = aliased(File)
@@ -48,10 +48,10 @@ class Category(Base):
             Product.img_id == prod_img.id
         ).order_by(cls.id.desc()).all()
         if not res:
-            if err_msg is None:
+            if not throw:
                 return []
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关种类和产品不存在')
         models = cls._combine_data(res)
         for model in models:
             model.products = model.products[0:count]

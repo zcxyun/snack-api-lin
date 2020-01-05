@@ -7,6 +7,7 @@ from lin.exception import NotFound, ParameterException
 from pydash import group_by
 from sqlalchemy import Column, Integer, String, DECIMAL
 
+from app.libs.error_code import ProductUnderStock
 from app.models.base import Base
 from app.models.category import Category
 from app.models.theme import Theme
@@ -38,22 +39,43 @@ class Product(Base):
             raise ParameterException(msg='商品价格格式不正确, 需要保留两位小数')
 
     @classmethod
-    def get_model(cls, id, soft=True, *, err_msg=None):
+    def check_stock(cls, product_id, count):
+        model = cls.get_model(product_id, throw=True)
+        if model.stock < count:
+            raise ProductUnderStock()
+        return True
+
+    @classmethod
+    def check_stocks(cls, products):
+        if type(products) != list or len(products) == 0:
+            raise ParameterException(msg='要检测库存的商品字典列表不是列表类型或是空列表')
+        ids = [item['product_id'] for item in products if 'product_id' in item]
+        ids_products = {item['product_id']: item for item in products if 'product_id' in item}
+        models = cls.get_models_by_ids(ids, throw=True)
+        if len(models) != len(products):
+            raise ParameterException(msg='要检测库存的商品字典列表包含不存在的商品')
+        for model in models:
+            if model.stock < ids_products[model.id]['count']:
+                raise ProductUnderStock()
+        return True
+
+    @classmethod
+    def get_model(cls, id, soft=True, *, throw=False):
         res = db.session.query(cls, Category, File).filter(
             cls.category_id == Category.id,
             cls.img_id == File.id,
             cls.id == id
         ).filter_by(soft=soft).first()
         if not res:
-            if err_msg is None:
+            if not throw:
                 return None
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关产品未添加或已隐藏')
         model = cls._combine_single_data(*res)
         return model
 
     @classmethod
-    def get_paginate_models(cls, start, count, q=None, cid=0, tid=0, soft=True, *, err_msg=None):
+    def get_paginate_models(cls, start, count, q=None, cid=0, tid=0, soft=True, *, throw=False):
         statement = db.session.query(cls, Category, File).filter(
             cls.category_id == Category.id,
             cls.img_id == File.id
@@ -72,10 +94,10 @@ class Product(Base):
         total = statement.count()
         res = statement.order_by(cls.id.desc()).offset(start).limit(count).all()
         if not res:
-            if err_msg is None:
+            if not throw:
                 return []
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关产品不存在')
         models = cls._combine_data(res)
         return {
             'start': start,
@@ -85,16 +107,16 @@ class Product(Base):
         }
 
     @classmethod
-    def get_recent(cls, count, soft=True, *, err_msg=None):
+    def get_recent(cls, count, soft=True, *, throw=False):
         res = db.session.query(cls, Category, File).filter(
             cls.category_id == Category.id,
             cls.img_id == File.id
         ).filter_by(soft=soft).order_by(cls.id.desc()).limit(count).all()
         if not res:
-            if err_msg is None:
+            if not throw:
                 return []
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关商品不存在')
         models = cls._combine_data(res)
         return models
 

@@ -1,4 +1,4 @@
-from flask import jsonify, request, current_app
+from flask import jsonify, request
 from lin import db
 from lin.exception import Success
 from lin.redprint import Redprint
@@ -15,7 +15,7 @@ product_api = Redprint('product')
 
 @product_api.route('/<int:pid>', methods=['GET'])
 def get(pid):
-    model = Product.get_model(pid, err_msg='相关产品未添加或已隐藏')
+    model = Product.get_model(pid, throw=True)
     product_propertes = ProductProperty.get_by_product_id(model.id)
     product_themes = Product.get_themes_by_id(model.id)
     product_desc_imgs = ProductImage.get_by_product_id_with_image(model.id)
@@ -36,7 +36,7 @@ def get(pid):
 def get_products_by_category(cid):
     start, count = paginate()
     q = request.args.get('q', None)
-    res = Product.get_paginate_models(start, count, q, cid, soft=False, err_msg='相关产品不存在')
+    res = Product.get_paginate_models(start, count, q, cid, soft=False, throw=True)
     products_with_themes(res['models'])
     return jsonify(res)
 
@@ -45,7 +45,7 @@ def get_products_by_category(cid):
 def get_products_by_theme(tid):
     start, count = paginate()
     q = request.args.get('q', None)
-    res = Product.get_paginate_models(start, count, q, tid=tid, soft=False, err_msg='相关产品不存在')
+    res = Product.get_paginate_models(start, count, q, tid=tid, soft=False, throw=True)
     products_with_themes(res['models'])
     return jsonify(res)
 
@@ -54,7 +54,7 @@ def get_products_by_theme(tid):
 def get_paginate():
     start, count = paginate()
     q = request.args.get('q', None)
-    res = Product.get_paginate_models(start, count, q, soft=False, err_msg='相关产品不存在')
+    res = Product.get_paginate_models(start, count, q, soft=False, throw=True)
     products_with_themes(res['models'])
     return jsonify(res)
 
@@ -78,7 +78,7 @@ def create():
     form = ProductContent().validate_for_api()
     props = validate_product_props()
     with db.auto_commit():
-        product = Product.add_model(form.data, commit=False, err_msg='相关商品已存在')
+        product = Product.add_model(form.data, commit=False, throw=True)
         db.session.flush()
         if props:
             for prop in props:
@@ -99,7 +99,7 @@ def update(pid):
     form = ProductContent().validate_for_api()
     props = validate_product_props()
     with db.auto_commit():
-        Product.edit_model(pid, form.data, commit=False, err_msg=['相同名字商品已存在', '相关商品不存在或已隐藏'])
+        Product.edit_model(pid, form.data, commit=False, throw=True)
         if props:
             ProductProperty.edit_properties(pid, props)
         if form.theme_ids.data:
@@ -111,18 +111,18 @@ def update(pid):
 
 @product_api.route('/<int:pid>', methods=['DELETE'])
 def delete(pid):
-    Product.remove_model(pid, err_msg='相关商品不存在')
+    Product.remove_model(pid, throw=True)
     return Success('商品删除成功')
 
 
 @product_api.route('/hide/<int:pid>', methods=['PUT'])
 def hide(pid):
-    Product.hide_model(pid, err_msg='相关商品未添加或已隐藏')
+    Product.hide_model(pid, throw=True)
     return Success('商品隐藏成功')
 
 
 @product_api.route('/show/<int:pid>', methods=['PUT'])
 def show(pid):
-    Product.show_model(pid, err_msg='相关商品未添加或已显示')
+    Product.show_model(pid, throw=True)
     return Success('商品显示成功')
 

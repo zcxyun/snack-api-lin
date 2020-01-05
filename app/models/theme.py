@@ -18,7 +18,7 @@ class Theme(Base):
         self._exclude = ['create_time', 'update_time']
 
     @classmethod
-    def get_model(cls, id, soft=True, *, err_msg=None):
+    def get_model(cls, id, soft=True, *, throw=False):
         topic_img = aliased(File)
         head_img = aliased(File)
         res = db.session.query(cls, topic_img.path, head_img.path).filter(
@@ -27,15 +27,15 @@ class Theme(Base):
             cls.id == id
         ).filter_by(soft=soft).first()
         if not res:
-            if err_msg is None:
+            if not throw:
                 return None
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关主题未添加或已隐藏')
         model = cls._combine_single_data(*res)
         return model
 
     @classmethod
-    def get_all_models(cls, soft=True, *, err_msg=None):
+    def get_all_models(cls, soft=True, *, throw=False):
         topic_img = aliased(File)
         head_img = aliased(File)
         res = db.session.query(cls, topic_img.path, head_img.path).filter(
@@ -43,15 +43,15 @@ class Theme(Base):
             cls.head_img_id == head_img.id,
         ).filter_by(soft=soft).order_by(cls.id.desc()).all()
         if not res:
-            if err_msg is None:
+            if not throw:
                 return None
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关主题未添加或已隐藏')
         models = cls._combine_data(res)
         return models
 
     @classmethod
-    def get_paginate_models(cls, start, count, q=None, soft=True, *, err_msg=None):
+    def get_paginate_models(cls, start, count, q=None, soft=True, *, throw=False):
         topic_img = aliased(File)
         head_img = aliased(File)
         statement = db.session.query(cls, topic_img.path, head_img.path).filter(
@@ -64,10 +64,10 @@ class Theme(Base):
         total = statement.count()
         res = statement.order_by(cls.id.desc()).offset(start).limit(count).all()
         if not res:
-            if err_msg is None:
+            if not throw:
                 return []
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关主题未添加或已隐藏')
         models = cls._combine_data(res)
         return {
             'start': start,
@@ -77,7 +77,7 @@ class Theme(Base):
         }
 
     @classmethod
-    def get_with_products(cls, tid, soft=True, *, err_msg=None):
+    def get_with_products(cls, tid, soft=True, *, throw=False):
         from app.models.theme_product import ThemeProduct
         from app.models.product import Product
         head_img = aliased(File)
@@ -90,10 +90,10 @@ class Theme(Base):
             cls.id == tid
         ).all()
         if not data:
-            if err_msg is None:
+            if not throw:
                 return []
             else:
-                raise NotFound(msg=err_msg)
+                raise NotFound(msg='相关主题不存在商品')
         res = []
         for theme, head_img, product_img, _, product in data:
             theme.products = getattr(theme, 'products', [])

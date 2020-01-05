@@ -12,7 +12,7 @@ product_api = Redprint('product')
 
 @product_api.route('/<int:pid>', methods=['GET'])
 def get(pid):
-    model = Product.get_model(pid, err_msg='相关产品不存在')
+    model = Product.get_model(pid, throw=True)
     desc_imgs = ProductImage.get_by_product_id_with_image(pid)
     if desc_imgs:
         model.desc_imgs = desc_imgs
@@ -29,7 +29,7 @@ def get(pid):
 def get_paginate():
     start, count = paginate()
     q = request.args.get('q', None)
-    res = Product.get_paginate_models_with_img(start, count, q, err_msg='相关商品不存在')
+    res = Product.get_paginate_models_with_img(start, count, q, throw=True)
     for model in res['models']:
         model.hide('img_id', 'delete_time', 'category_id')
     return jsonify(res)
@@ -39,7 +39,7 @@ def get_paginate():
 def get_paginate_by_category(cid):
     start, count = paginate()
     q = request.args.get('q', None)
-    res = Product.get_paginate_models(start, count, q, cid, err_msg='相关商品不存在')
+    res = Product.get_paginate_models(start, count, q, cid, throw=True)
     for model in res['models']:
         model.hide('img_id', 'delete_time', 'category_id')
     return jsonify(res)
@@ -49,7 +49,7 @@ def get_paginate_by_category(cid):
 def get_paginate_by_theme(tid):
     start, count = paginate()
     q = request.args.get('q', None)
-    res = Product.get_paginate_models(start, count, q, tid=tid, err_msg='相关商品不存在')
+    res = Product.get_paginate_models(start, count, q, tid=tid, throw=True)
     for model in res['models']:
         model.hide('img_id', 'delete_time', 'category_id')
     return jsonify(res)
@@ -57,7 +57,7 @@ def get_paginate_by_theme(tid):
 
 @product_api.route('/recent', methods=['GET'])
 def get_recent():
-    models = Product.get_recent(20, err_msg='相关产品不存在')
+    models = Product.get_recent(20, throw=True)
     for model in models:
         model._fields = ['id', 'image', 'price_str', 'name', 'summary']
     return jsonify(models)

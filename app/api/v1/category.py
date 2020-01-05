@@ -8,13 +8,13 @@ category_api = Redprint('category')
 
 @category_api.route('/<int:cid>', methods=['GET'])
 def get(cid):
-    model = Category.get_model_with_img(cid, err_msg='相关分类不存在')
+    model = Category.get_model_with_img(cid, throw=True)
     return jsonify(model)
 
 
 @category_api.route('/<int:cid>/products', methods=['GET'])
 def get_with_products(cid):
-    model = Category.get_with_products(cid, err_msg='相关种类不存在')
+    model = Category.get_with_products(cid, throw=True)
     model._fields = ['id', 'image', 'name', 'products']
     for prod in model.products:
         prod._fields = ['id', 'image', 'name']
@@ -23,8 +23,7 @@ def get_with_products(cid):
 
 @category_api.route('/all', methods=['GET'])
 def get_all():
-    models = Category.get_all_models(err_msg='相关分类不存在')
+    models = Category.get_all_models(throw=True)
     for model in models:
         model._fields = ['id', 'name']
     return jsonify(models)
-

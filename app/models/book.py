@@ -6,8 +6,6 @@ from lin.exception import NotFound, ParameterException
 from lin.interface import InfoCrud as Base
 from sqlalchemy import Column, String, Integer
 
-from app.libs.error_code import BookNotFound
-
 
 class Book(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -34,7 +32,7 @@ class Book(Base):
     def search_by_keywords(cls, q):
         books = cls.query.filter(Book.title.like('%' + q + '%'), Book.delete_time == None).all()
         if not books:
-            raise BookNotFound()
+            raise NotFound(msg='没有找到相关书籍')
         return books
 
     @classmethod
