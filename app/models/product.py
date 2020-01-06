@@ -18,13 +18,14 @@ class Product(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(80), nullable=False, unique=True, comment='商品名称')
     price = Column(DECIMAL(10, 2), nullable=False, comment='价格')
+    old_price = Column(DECIMAL(10, 2), comment='旧价格')
     stock = Column(Integer, default=0, comment='库存量')
     summary = Column(String(50), comment='摘要')
     category_id = Column(Integer, nullable=False, comment='分类ID')
     img_id = Column(Integer, comment='关联图片ID')
 
     def _set_fields(self):
-        self._fields = ['id', 'name', 'price_str', 'stock', 'summary',
+        self._fields = ['id', 'name', 'price_str', 'old_price_str', 'stock', 'summary',
                         'delete_time', 'category_id', 'img_id']
 
     @property
@@ -37,6 +38,17 @@ class Product(Base):
             self.price = Decimal(value)
         else:
             raise ParameterException(msg='商品价格格式不正确, 需要保留两位小数')
+
+    @property
+    def old_price_str(self):
+        return str(self.old_price.quantize(Decimal('0.00'))) if self.old_price else self.price_str
+
+    @old_price_str.setter
+    def old_price_str(self, value):
+        if type(value) == str and re.findall(r'^\d+\.\d{2}$', value):
+            self.old_price = Decimal(value)
+        else:
+            raise ParameterException(msg='商品旧价格格式不正确, 需要保留两位小数')
 
     @classmethod
     def check_stock(cls, product_id, count):

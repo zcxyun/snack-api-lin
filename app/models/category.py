@@ -12,13 +12,80 @@ class Category(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(50), nullable=False, unique=True, comment='分类名称')
     img_id = Column(Integer, comment='关联图片ID')
+    mini_img_id = Column(Integer, comment='关联小图片ID')
     summary = Column(String(100), comment='描述')
 
     def _set_fields(self):
         self._exclude = ['create_time', 'update_time']
 
     @classmethod
-    def get_with_products(cls, cid, count=9, soft=True, *, throw=False):
+    def get_all_with_mini_img(cls, soft=True, *, throw=False):
+        res = db.session.query(cls, File.path).filter_by(soft=soft).filter(
+            cls.mini_img_id == File.id
+        ).all()
+        if not res:
+            if not throw:
+                return []
+            else:
+                raise NotFound(msg='相关种类不存在')
+        models = cls._combine_data_for_get_all_with_mini_img(res)
+        return models
+
+    @classmethod
+    def _combine_data_for_get_all_with_mini_img(cls, data):
+        models = []
+        for item in data:
+            category, mini_path = item
+            category.mini_image = cls.get_file_url(mini_path)
+            category._fields.append('mini_image')
+            models.append(category)
+        return models
+
+    @classmethod
+    def get_pagiante(cls, start, count, q=None, soft=True, *, throw=False):
+        Image = aliased(File)
+        MiniImage = aliased(File)
+        statement = db.session.query(cls, Image.path, MiniImage.path).join(
+            Image, cls.img_id == Image.id,
+        ).join(
+            MiniImage, cls.mini_img_id == MiniImage.id
+        ).filter_by(soft=soft).filter(
+        ).order_by(cls.id.desc()).offset(start).limit(count)
+        if q:
+            q = '%{}%'.format(q)
+            statement = statement.filter(cls.name.ilike(q))
+        total = statement.count()
+        res = statement.all()
+        if not res:
+            if not throw:
+                return []
+            else:
+                raise NotFound(msg='相关种类不存在')
+        models = cls._combine_data_for_get_paginate(res)
+        return {
+            'start': start,
+            'count': count,
+            'models': models,
+            'total': total
+        }
+
+    @classmethod
+    def _combine_data_for_get_paginate(cls, data):
+        models = []
+        for item in data:
+            model = cls._combine_single_data_for_get_paginate(*item)
+            models.append(model)
+        return models
+
+    @classmethod
+    def _combine_single_data_for_get_paginate(cls, category, path, mini_path):
+        category.image = cls.get_file_url(path)
+        category.mini_image = cls.get_file_url(mini_path)
+        category._fields.extend(['image', 'mini_image'])
+        return category
+
+    @classmethod
+    def get_with_products(cls, cid, soft=True, *, throw=False):
         from app.models.product import Product
         cate_img = aliased(File)
         prod_img = aliased(File)
@@ -34,7 +101,6 @@ class Category(Base):
             else:
                 raise NotFound(msg='相关种类不存在')
         model = cls._combine_data(res)[0]
-        model.products = model.products[0:count]
         return model
 
     @classmethod

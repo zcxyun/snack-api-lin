@@ -1,4 +1,5 @@
 from flask import jsonify, request
+from lin.core import File
 from lin.exception import Success
 from lin.redprint import Redprint
 
@@ -12,6 +13,10 @@ category_api = Redprint('category')
 @category_api.route('/<int:cid>', methods=['GET'])
 def get(cid):
     model = Category.get_model_with_img(cid, throw=True)
+    mini_image = File.get(one=True, id=model.mini_img_id)
+    if mini_image:
+        model.mini_image = Category.get_file_url(mini_image.path)
+        model._fields.append('mini_image')
     return jsonify(model)
 
 
@@ -25,6 +30,7 @@ def get_all():
 
 @category_api.route('/all/products', methods=['GET'])
 def get_all_with_products():
+    """待用"""
     models = Category.get_all_with_products(throw=True)
     # res = []
     # for model in models:
@@ -41,7 +47,8 @@ def get_all_with_products():
 def get_paginate():
     start, count = paginate()
     q = request.args.get('q', None)
-    models = Category.get_paginate_models_with_img(start, count, q, soft=False, throw=True)
+    models = Category.get_pagiante(start, count, q, soft=False, throw=True)
+    # models = Category.get_paginate_models_with_img(start, count, q, soft=False, throw=True)
     return jsonify(models)
 
 

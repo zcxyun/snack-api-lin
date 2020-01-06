@@ -8,6 +8,8 @@ from wtforms.validators import DataRequired, NumberRange, Length, Regexp, Option
 
 class ProductContent(Form):
     name = StringField(validators=[DataRequired(message='商品名字不能为空')])
+    old_price_str = StringField(validators=[DataRequired(message='商品旧价格不能为空'),
+                                        Regexp(r'^\d+\.\d{2}$', message='旧价格格式不正确, 需要保留两位小数')])
     price_str = StringField(validators=[DataRequired(message='商品价格不能为空'),
                                         Regexp(r'^\d+\.\d{2}$', message='价格格式不正确, 需要保留两位小数')])
     stock = IntegerField(validators=[NumberRange(min=0, message='商品库存必须大于等于0')])

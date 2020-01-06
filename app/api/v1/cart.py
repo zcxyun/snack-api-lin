@@ -15,7 +15,7 @@ def get_products():
     member = get_current_member()
     products = Cart.get_products(member.id)
     for product in products:
-        product._fields = ['id', 'count', 'image', 'name', 'price_str', 'selected']
+        product._fields = ['id', 'count', 'image', 'name', 'old_price_str', 'price_str', 'selected']
     return jsonify(products)
 
 

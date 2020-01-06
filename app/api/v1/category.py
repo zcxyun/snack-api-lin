@@ -27,3 +27,11 @@ def get_all():
     for model in models:
         model._fields = ['id', 'name']
     return jsonify(models)
+
+
+@category_api.route('/all/with/mini_img', methods=['GET'])
+def get_all_with_mini_img():
+    models = Category.get_all_with_mini_img(throw=True)
+    for model in models:
+        model._fields = ['id', 'name', 'mini_image']
+    return jsonify(models)
