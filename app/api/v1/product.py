@@ -6,6 +6,7 @@ from flask import request, jsonify
 from app.models.product import Product
 from app.models.product_image import ProductImage
 from app.models.product_property import ProductProperty
+from app.validators.v1.product_forms import ProductIdAndCount
 
 product_api = Redprint('product')
 
@@ -22,6 +23,13 @@ def get(pid):
         model.properties = properties
         model._fields.append('properties')
     model.hide('img_id', 'delete_time', 'category_id', 'category')
+    return jsonify(model)
+
+
+@product_api.route('/<int:pid>/for/pre_order', methods=['GET'])
+def get_for_pre_order(pid):
+    model = Product.get_model_with_img(pid, throw=True)
+    model._fields = ['id', 'name', 'image', 'price_str', 'old_price_str']
     return jsonify(model)
 
 
@@ -61,3 +69,13 @@ def get_recent():
     for model in models:
         model._fields = ['id', 'image', 'price_str', 'name', 'summary']
     return jsonify(models)
+
+
+@product_api.route('/stock/check', methods=['POST'])
+def check_stock():
+    form = ProductIdAndCount().validate_for_api()
+    has_stock = Product.check_stock(form.product_id.data, form.count.data)
+    return {
+        'product_id': form.product_id.data,
+        'has_stock': has_stock
+    }

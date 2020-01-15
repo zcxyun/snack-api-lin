@@ -85,7 +85,7 @@ class Category(Base):
         return category
 
     @classmethod
-    def get_with_products(cls, cid, soft=True, *, throw=False):
+    def get_with_products(cls, cid, count=12, soft=True, *, throw=False):
         from app.models.product import Product
         cate_img = aliased(File)
         prod_img = aliased(File)
@@ -94,7 +94,7 @@ class Category(Base):
             cls.id == Product.category_id,
             cls.img_id == cate_img.id,
             Product.img_id == prod_img.id
-        ).all()
+        ).offset(0).limit(count).all()
         if not res:
             if not throw:
                 return []
@@ -104,7 +104,7 @@ class Category(Base):
         return model
 
     @classmethod
-    def get_all_with_products(cls, count=9, soft=True, *, throw=False):
+    def get_all_with_products(cls, count=12, soft=True, *, throw=False):
         from app.models.product import Product
         cate_img = aliased(File)
         prod_img = aliased(File)

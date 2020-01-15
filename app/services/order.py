@@ -37,19 +37,21 @@ class OrderService:
     def _snap_order(self):
         snap = {
             'total_price': 0,
+            'old_total_price': 0,
             'total_count': 0,
             'snap_products': [],
-            'snap_address': json.dumps(self._get_member_address()),
+            'snap_address': json.dumps(self._get_member_address(), ensure_ascii=False),
             'snap_name': ', '.join([item.name for item in self.o_products]),
             'snap_img': self.o_products[0].image
         }
         for product in self.products:
             o_product = self.check_product_exist(product['product_id'])
             p_status = self._get_product_status(product, o_product)
-            snap['total_price'] += Decimal(p_status['total_price'])
+            snap['total_price'] += Decimal(p_status['total_price_str'])
+            snap['old_total_price'] += Decimal(p_status['old_total_price_str'])
             snap['total_count'] += p_status['count']
             snap['snap_products'].append(p_status)
-        snap['snap_products'] = json.dumps(snap['snap_products'])
+        snap['snap_products'] = json.dumps(snap['snap_products'], ensure_ascii=False)
         return snap
 
     def check_product_exist(self, product_id):
@@ -61,13 +63,17 @@ class OrderService:
         return product
 
     def _get_product_status(self, product, o_product):
-        total_price = str((o_product.price * product['count']).quantize(Decimal('0.00')))
+        total_price = (o_product.price * product['count']).quantize(Decimal('0.00'))
+        old_total_price = (o_product.old_price * product['count']).quantize(Decimal('0.00'))
         p_status = dict()
         p_status['id'] = o_product.id
         p_status['name'] = o_product.name
         p_status['count'] = product['count']
-        p_status['price'] = o_product.price_str
-        p_status['total_price'] = total_price
+        p_status['image'] = o_product.image
+        p_status['price_str'] = o_product.price_str
+        p_status['old_price_str'] = o_product.old_price_str
+        p_status['total_price_str'] = str(total_price)
+        p_status['old_total_price_str'] = str(old_total_price)
         have_stock = o_product.stock >= product['count']
         if not have_stock:
             raise Failed(msg='{}的库存不足, 下单失败'.format(o_product.name))

@@ -1,7 +1,9 @@
-from lin.exception import ParameterException
+from lin import db
+from lin.exception import ParameterException, NotFound
 from sqlalchemy import Column, Integer, Boolean
 
 from app.models.base import Base
+from app.models.product import Product
 
 
 class Like(Base):
@@ -63,6 +65,12 @@ class Like(Base):
         return models
 
     @classmethod
+    def get_like_count_by_member(cls, member_id):
+        """获取某一会员的所有点赞数量"""
+        count = cls.query.filter_by(soft=True, member_id=member_id, like_status=True).count()
+        return count
+
+    @classmethod
     def get_like_count_by_product(cls, product_id):
         """获取某一商品的点赞数量"""
         count = cls.query.filter_by(soft=True, product_id=product_id, like_status=True).count()
@@ -77,4 +85,24 @@ class Like(Base):
             'like_count': like_count,
             'like_status': like_status,
             'product_id': product_id
+        }
+
+    @classmethod
+    def get_like_products(cls, member_id, start=0, count=6, soft=True, *, throw=False):
+        """获取某一会员点赞的所有商品(分页)"""
+        statement = cls.query.filter_by(soft=soft, member_id=member_id, like_status=True)
+        total = statement.count()
+        likes = statement.order_by(cls.id.desc()).offset(start).limit(count).all()
+        if not likes:
+            if not throw:
+                return []
+            else:
+                raise NotFound(msg='对不起, 还没有点赞的商品')
+        product_ids = [like.product_id for like in likes]
+        products = Product.get_models_by_ids_with_img(product_ids, throw=True)
+        return {
+            'total': total,
+            'start': start,
+            'count': count,
+            'models': products
         }

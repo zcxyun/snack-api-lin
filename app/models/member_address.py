@@ -37,5 +37,5 @@ class MemberAddress(Base):
     def get_by_member_id(cls, member_id):
         model = cls.query.filter_by(soft=True, member_id=member_id).first()
         if not model:
-            raise NotFound(msg='相关会员收货地址不存在')
+            raise NotFound(msg='请选择收货地址')
         return model

@@ -18,7 +18,7 @@ class Product(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(80), nullable=False, unique=True, comment='商品名称')
     price = Column(DECIMAL(10, 2), nullable=False, comment='价格')
-    old_price = Column(DECIMAL(10, 2), comment='旧价格')
+    old_price = Column(DECIMAL(10, 2), nullable=False, comment='旧价格')
     stock = Column(Integer, default=0, comment='库存量')
     summary = Column(String(50), comment='摘要')
     category_id = Column(Integer, nullable=False, comment='分类ID')
@@ -51,14 +51,17 @@ class Product(Base):
             raise ParameterException(msg='商品旧价格格式不正确, 需要保留两位小数')
 
     @classmethod
-    def check_stock(cls, product_id, count):
+    def check_stock(cls, product_id, count, throw=False):
         model = cls.get_model(product_id, throw=True)
         if model.stock < count:
-            raise ProductUnderStock()
+            if not throw:
+                return False
+            else:
+                raise ProductUnderStock()
         return True
 
     @classmethod
-    def check_stocks(cls, products):
+    def check_stocks(cls, products, throw=False):
         if type(products) != list or len(products) == 0:
             raise ParameterException(msg='要检测库存的商品字典列表不是列表类型或是空列表')
         ids = [item['product_id'] for item in products if 'product_id' in item]
@@ -68,7 +71,10 @@ class Product(Base):
             raise ParameterException(msg='要检测库存的商品字典列表包含不存在的商品')
         for model in models:
             if model.stock < ids_products[model.id]['count']:
-                raise ProductUnderStock()
+                if not throw:
+                    return False
+                else:
+                    raise ProductUnderStock()
         return True
 
     @classmethod

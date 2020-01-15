@@ -1,7 +1,8 @@
 from flask import request
 from lin.exception import ParameterException
+from lin.forms import Form
 from wtforms import Form as WTForm, IntegerField
-from wtforms.validators import DataRequired, NumberRange
+from wtforms.validators import DataRequired, NumberRange, AnyOf
 
 
 class OneProductOfOrder(WTForm):
@@ -20,3 +21,7 @@ def validate_place_order():
             if not valid:
                 raise ParameterException(msg=cc.errors)
         return products
+
+
+class OrderStatusForm(Form):
+    order_status = IntegerField(validators=[AnyOf([-1, 0, 1, 2, 3], message='订单状态不正确')])
