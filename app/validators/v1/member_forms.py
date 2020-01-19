@@ -4,10 +4,9 @@ from wtforms.validators import DataRequired, AnyOf
 
 
 class MemberInfoForm(Form):
-    nickName = StringField(validators=[DataRequired(message='会员昵称不能为空')])
-    avatarUrl = StringField(validators=[DataRequired(message='会员头像不能为空')])
-    gender = IntegerField(validators=[DataRequired(message='会员性别不能为空'),
-                                      AnyOf([0, 1, 2], message='会员性别只能为 0, 未知 1, 男 2, 女')])
+    nickName = StringField(default='')
+    avatarUrl = StringField(default='')
+    gender = IntegerField(default=0)
     country = StringField(default='')
     province = StringField(default='')
     city = StringField(default='')

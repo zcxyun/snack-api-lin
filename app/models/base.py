@@ -150,7 +150,7 @@ class Base(InfoCrud):
     @classmethod
     def get_file_url(cls, file_relative_path):
         """根据图片表中相对URL合成可访问URL"""
-        site_main = current_app.config.get('SITE_DOMAIN', 'http://127.0.0.1:5000')
+        site_main = current_app.config.get('SITE_DOMAIN')
         file_url = site_main + os.path.join(current_app.static_url_path, file_relative_path)
         return file_url
 

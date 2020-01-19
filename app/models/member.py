@@ -1,9 +1,7 @@
-from lin import db
 from lin.exception import NotFound
 from sqlalchemy import Column, String, Integer, SmallInteger
 
 from app.libs.enum import MemberActive
-from app.models.cart import Cart
 from .base import Base
 
 

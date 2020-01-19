@@ -22,7 +22,7 @@ class ProductionSecure(BaseConfig):
     """
     生产环境安全性配置
     """
-    SQLALCHEMY_DATABASE_URI = 'mysql+cymysql://root:zhaolong@localhost:3306/snack'
+    SQLALCHEMY_DATABASE_URI = 'mysql+cymysql://root:zcxZCX132!#@@localhost:3306/snack'
 
     SQLALCHEMY_ECHO = False
 
