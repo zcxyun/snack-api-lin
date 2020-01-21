@@ -62,8 +62,10 @@ class Product(Base):
 
     @classmethod
     def check_stocks(cls, products, throw=False):
-        if type(products) != list or len(products) == 0:
-            raise ParameterException(msg='要检测库存的商品字典列表不是列表类型或是空列表')
+        if type(products) == list and len(products) == 0:
+            return True
+        if type(products) != list:
+            raise ParameterException('要检测库存的数据不是列表类型')
         ids = [item['product_id'] for item in products if 'product_id' in item]
         ids_products = {item['product_id']: item for item in products if 'product_id' in item}
         models = cls.get_models_by_ids(ids, throw=True)

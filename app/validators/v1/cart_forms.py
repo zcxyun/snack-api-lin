@@ -30,4 +30,4 @@ def validate_some_cart_content():
             valid = cc.validate()
             if not valid:
                 raise ParameterException(msg=cc.errors)
-        return cart_contents
+    return cart_contents
