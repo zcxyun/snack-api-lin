@@ -6,6 +6,7 @@
 from flask import Blueprint
 from app.api.v1.book import book_api
 from app.api.v1.member import member_api
+from app.api.v1.pay import pay_api
 from app.api.v1.product import product_api
 from app.api.v1.token import token_api
 from app.api.v1.banner import banner_api
@@ -34,4 +35,5 @@ def create_v1():
     cart_api.register(bp_v1)
     address_api.register(bp_v1)
     order_api.register(bp_v1)
+    pay_api.register(bp_v1)
     return bp_v1

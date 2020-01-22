@@ -48,5 +48,9 @@ class WxTplMsgException(APIException):
     msg = '模板消息发送失败'
 
 
+class WxPayException(APIException):
+    code = 500
+    error_code = 9003
+    msg = '获取微信支付信息失败'
 
 

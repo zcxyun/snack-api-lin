@@ -2,10 +2,13 @@ import json
 import uuid
 from decimal import Decimal
 
+from flask import current_app
 from lin import db
 from lin.exception import NotFound, Failed
 
 from app.libs.enum import OrderStatus
+from app.libs.error_code import WxPayException
+from app.libs.wx_helper import WxHelper
 from app.models.member_address import MemberAddress
 from app.models.order import Order
 from app.models.order_product import OrderProduct
@@ -140,3 +143,32 @@ class OrderService:
             raise NotFound(msg='订单不存在或订单不是待收货状态')
         order.update(order_status=OrderStatus.DONE.value, commit=True)
         return True
+
+    def pay(self, member_id, openid, order_id):
+        order = Order.query.filter_by(member_id=member_id, id=order_id, soft=True).first()
+        if not order:
+            raise NotFound(msg='指定订单不存在')
+
+        mina_config = current_app.config['WE_CHAT']
+        notify_url = current_app.config['SITE_DOMAIN'] + mina_config['PAY_NOTIFY_URL']
+
+        wx_helper = WxHelper(merchant_key=mina_config['PAY_KEY'])
+
+        pay_data = {
+            'appid': mina_config['APP_ID'],
+            'mch_id': mina_config['MCH_ID'],
+            'nonce_str': wx_helper.get_random_str(),
+            'body': 'snack',
+            'out_trade_no': order.order_no,
+            'total_fee': int(order.total_price * 100),
+            'notify_url': notify_url,
+            'trade_type': 'JSAPI',
+            'openid': openid
+        }
+        pay_info = wx_helper.get_pay_info(pay_data)
+        if pay_info:
+            # 保存prepay_id为了后面发模板消息
+            order.update(prepay_id=pay_info['prepay_id'], commit=True)
+        else:
+            raise WxPayException()
+        return pay_info

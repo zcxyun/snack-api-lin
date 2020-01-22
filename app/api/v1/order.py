@@ -36,6 +36,14 @@ def confirm(oid):
     return Success(msg='订单已确认')
 
 
+@order_api.route('/<int:oid>/pay', methods=['POST'])
+@member_login_required
+def pay(oid):
+    member = get_current_member()
+    res = OrderService().pay(member.id, member.openid, oid)
+    return jsonify(res)
+
+
 @order_api.route('/<int:oid>', methods=['GET'])
 def get(oid):
     model = Order.get_model(oid, throw=True)

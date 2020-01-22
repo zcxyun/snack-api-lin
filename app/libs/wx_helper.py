@@ -1,4 +1,5 @@
 import hashlib, requests
+import uuid
 from datetime import datetime, timedelta
 import json
 import xml.etree.ElementTree as ET
@@ -100,3 +101,11 @@ class WxHelper:
                 current_app.config['WE_CHAT']['APP_KEY'], code)
         res = requests.get(url)
         return res.json().get('openid')
+
+    @staticmethod
+    def get_random_str():
+        """
+        获取随机字符串
+        :return:
+        """
+        return str(uuid.uuid4()).replace('-', '')

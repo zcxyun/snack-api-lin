@@ -10,7 +10,8 @@ from app.models.member import Member
 
 
 class WxMessage:
-    def __int__(self, order, access_token, tpl_jump_page=''):
+
+    def __init__(self, order, access_token, tpl_jump_page=''):
         if order and access_token:
             self._send_url = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token={}'.format(access_token)
 
