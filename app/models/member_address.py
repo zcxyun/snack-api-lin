@@ -17,7 +17,7 @@ class MemberAddress(Base):
     member_id = Column(Integer, nullable=False, comment='会员ID')
 
     def _set_fields(self):
-        self._exclude = ['create_time', 'update_time', 'delete_time']
+        self._exclude = ['_create_time', '_update_time', 'delete_time']
 
     @classmethod
     def get_address(cls, member_id):

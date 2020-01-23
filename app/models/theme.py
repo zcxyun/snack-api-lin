@@ -14,9 +14,6 @@ class Theme(Base):
     topic_img_id = Column(Integer, nullable=False, comment='主题图ID')
     head_img_id = Column(Integer, nullable=False, comment='专题列表页，头图ID')
 
-    def _set_fields(self):
-        self._exclude = ['create_time', 'update_time']
-
     @classmethod
     def get_model(cls, id, soft=True, *, throw=False):
         topic_img = aliased(File)

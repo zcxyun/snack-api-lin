@@ -10,8 +10,11 @@ from lin.interface import InfoCrud
 class Base(InfoCrud):
     __abstract__ = True
 
+    def _set_fields(self):
+        self._exclude = []
+
     @property
-    def create_time(self):
+    def create_time_str(self):
         if self._create_time is None:
             return None
         return self._create_time.strftime('%Y-%m-%d %H:%M:%S')

@@ -15,9 +15,6 @@ class Category(Base):
     mini_img_id = Column(Integer, comment='关联小图片ID')
     summary = Column(String(100), comment='描述')
 
-    def _set_fields(self):
-        self._exclude = ['create_time', 'update_time']
-
     @classmethod
     def get_all_with_mini_img(cls, soft=True, *, throw=False):
         res = db.session.query(cls, File.path).filter_by(soft=soft).filter(

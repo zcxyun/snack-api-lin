@@ -1,3 +1,4 @@
+from datetime import timedelta
 from decimal import Decimal
 
 from flask import current_app
@@ -30,8 +31,8 @@ class Order(Base):
 
     def _set_fields(self):
         self._fields = ['id', 'order_no', 'total_price_str', 'old_total_price_str', 'total_count',
-                        'order_status', 'order_status_desc',
-                        'snap_img', 'snap_name', 'snap_products', 'snap_address',  'create_time']
+                        'order_status', 'order_status_desc', 'deadline_str',
+                        'snap_img', 'snap_name', 'snap_products', 'snap_address',  'create_time_str']
 
     @property
     def total_price_str(self):
@@ -71,12 +72,18 @@ class Order(Base):
 
     # @property
     # def order_number(self):
-    #     order_number = self.create_time.strftime('%Y%m%d%H%M%S')
+    #     order_number = self._create_time.strftime('%Y%m%d%H%M%S')
     #     order_number += str(self.id).zfill(5)
     #     return order_number
 
     @property
+    def deadline_str(self):
+        """付款截止时间(到时还未付款取消订单)"""
+        return datetime_format(self._create_time + timedelta(seconds=current_app.config['PAY_COUNTDOWN']))
+
+    @property
     def pay_time_format(self):
+        """付款时间"""
         if not self.pay_time:
             return '未支付'
         return datetime_format(self.pay_time)
