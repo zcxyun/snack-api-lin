@@ -23,6 +23,7 @@ def create_cms():
     from .member import member_api
     from .address import address_api
     from .order import order_api
+    from .stat import stat_api
     admin_api.register(cms)
     user_api.register(cms)
     log_api.register(cms)
@@ -36,4 +37,5 @@ def create_cms():
     member_api.register(cms)
     address_api.register(cms)
     order_api.register(cms)
+    stat_api.register(cms)
     return cms

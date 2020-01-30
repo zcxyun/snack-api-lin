@@ -103,6 +103,11 @@ def clear_cart():
         model.hard_delete()
 
 
+# 统计相关
+def stat_dashboard():
+    pass
+
+
 with app.app_context():
     with db.auto_commit():
         clear_cart()

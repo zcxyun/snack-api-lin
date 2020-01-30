@@ -1,10 +1,12 @@
 import os
+from datetime import datetime, timedelta, date
 
 from flask import current_app
 from lin import db
 from lin.core import File
 from lin.exception import ParameterException, NotFound
 from lin.interface import InfoCrud
+from sqlalchemy import func
 
 
 class Base(InfoCrud):
@@ -241,3 +243,28 @@ class Base(InfoCrud):
                 raise NotFound(msg='相关资源未添加或已显示')
         model.update(delete_time=None, commit=commit)
         return True
+
+    @classmethod
+    def stat_total(cls, datetime_ago=datetime.now()):
+        total = db.session.query(func.count(cls.id)).filter_by(soft=True).filter(
+            cls._create_time <= datetime_ago
+        ).scalar()
+        return total
+
+    @classmethod
+    def stat_total_by_days(cls, days=7):
+        total = db.session.query(func.count(cls.id)).filter_by(soft=True).filter(
+            cls._create_time <= datetime.now(),
+            cls._create_time >= datetime.now() - timedelta(days=days)
+        ).scalar()
+        return total
+
+    @classmethod
+    def stat_total_by_date(cls, one_date):
+        date_from = datetime.strptime('{} 00:00:00'.format(one_date), '%Y-%m-%d %H:%M:%S')
+        date_to = datetime.strptime('{} 23:59:59'.format(one_date), '%Y-%m-%d %H:%M:%S')
+        total = db.session.query(func.count(cls.id)).filter_by(soft=True).filter(
+            cls._create_time >= date_from,
+            cls._create_time <= date_to
+        ).scalar()
+        return total

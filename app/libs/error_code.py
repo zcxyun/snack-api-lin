@@ -22,6 +22,19 @@ class ProductUnderStock(APIException):
     msg = '相关商品库存不足'
 
 
+# 统计相关
+class RepeatStatException(APIException):
+    code = 400
+    error_code = 40000
+    msg = '已统计数据到昨天'
+
+
+class NoDataStatException(APIException):
+    code = 400
+    error_code = 40010
+    msg = '还没有相关数据, 不需要统计'
+
+
 # 订单相关
 class OrderNotPay(APIException):
     code = 400

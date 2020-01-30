@@ -2,7 +2,7 @@ from pprint import pprint
 
 from app.app import create_app
 
-app = create_app()
+app = create_app(environment='development')
 
 
 def test_get_banner():
