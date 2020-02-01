@@ -77,3 +77,4 @@ class Stat:
         if res is None:
             return [Decimal('0.00'), 0]
         return res
+

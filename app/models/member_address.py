@@ -1,7 +1,9 @@
+from lin import db
 from lin.exception import NotFound
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, String, Boolean, or_
 
 from app.models.base import Base
+from app.models.member import Member
 
 
 class MemberAddress(Base):
@@ -20,13 +22,8 @@ class MemberAddress(Base):
         self._exclude = ['_create_time', '_update_time', 'delete_time']
 
     @classmethod
-    def get_address(cls, member_id):
-        model = cls.query.filter_by(soft=True, member_id=member_id).first()
-        return model
-
-    @classmethod
     def edit(cls, member_id, data):
-        model = cls.get_address(member_id)
+        model = cls.get_by_member_id(member_id)
         if not model:
             cls.create(**data, member_id=member_id, commit=True)
             return True
@@ -34,8 +31,49 @@ class MemberAddress(Base):
         return True
 
     @classmethod
-    def get_by_member_id(cls, member_id):
+    def get_by_member_id(cls, member_id, *, throw=False):
         model = cls.query.filter_by(soft=True, member_id=member_id).first()
         if not model:
-            raise NotFound(msg='请选择收货地址')
+            if not throw:
+                return None
+            else:
+                raise NotFound(msg='请选择收货地址')
         return model
+
+    @classmethod
+    def get_paginate_with_member(cls, start, count, q=None, soft=True, *, throw=False):
+        statement = db.session.query(cls, Member).filter_by(soft=soft).filter(cls.member_id == Member.id)
+        if q:
+            q = '%{}%'.format(q)
+            where = or_(cls.userName.ilike(q), Member.nickName.ilike(q))
+            statement = statement.filter(where)
+        total = statement.count()
+        res = statement.order_by(cls.id.desc()).offset(start).limit(count).all()
+        if not res:
+            if not throw:
+                return []
+            else:
+                raise NotFound(msg='相关收货地址信息不存在')
+        models = cls._combine_data(res)
+        return {
+            'start': start,
+            'count': count,
+            'total': total,
+            'models': models
+        }
+
+    @classmethod
+    def _combine_data(cls, res):
+        models = []
+        for item in res:
+            model = cls._combine_single_data(*item)
+            models.append(model)
+        return models
+
+    @classmethod
+    def _combine_single_data(cls, address, member):
+        address.member_avatar = member.avatarUrl
+        address.member_name = member.nickName
+        address.member_openid = member.openid
+        address._fields.extend(['member_avatar', 'member_name', 'member_openid'])
+        return address

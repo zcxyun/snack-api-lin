@@ -109,7 +109,7 @@ class OrderService:
         return True
 
     def _get_member_address(self):
-        member_address = MemberAddress.get_by_member_id(self.mid)
+        member_address = MemberAddress.get_by_member_id(self.mid, throw=True)
         return dict(member_address)
 
     def get_stock_data(self, order_id):
@@ -142,6 +142,15 @@ class OrderService:
         if not order:
             raise NotFound(msg='订单不存在或订单不是待收货状态')
         order.update(order_status=OrderStatus.DONE.value, commit=True)
+        return True
+
+    def delivery(self, member_id, order_id):
+        order = Order.query.filter_by(soft=True, member_id=member_id, id=order_id).filter(
+            Order.order_status == OrderStatus.UNDELIVERED.value
+        ).first()
+        if not order:
+            raise NotFound(msg='订单不存在或订单不是待发货状态')
+        order.update(order_status=OrderStatus.UNRECEIPTED.value, commit=True)
         return True
 
     def pay(self, member_id, openid, order_id):

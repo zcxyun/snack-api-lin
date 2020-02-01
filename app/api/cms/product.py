@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from lin import db
+from lin import db, route_meta, group_required
 from lin.exception import Success
 from lin.redprint import Redprint
 
@@ -14,6 +14,8 @@ product_api = Redprint('product')
 
 
 @product_api.route('/<int:pid>', methods=['GET'])
+@route_meta(auth='查询指定商品', module='商品')
+@group_required
 def get(pid):
     model = Product.get_model(pid, throw=True)
     product_propertes = ProductProperty.get_by_product_id(model.id)
@@ -33,6 +35,8 @@ def get(pid):
 
 
 @product_api.route('/category/<int:cid>', methods=['GET'])
+@route_meta(auth='查询指定种类的商品', module='商品')
+@group_required
 def get_products_by_category(cid):
     start, count = paginate()
     q = request.args.get('q', None)
@@ -42,6 +46,8 @@ def get_products_by_category(cid):
 
 
 @product_api.route('/theme/<int:tid>', methods=['GET'])
+@route_meta(auth='查询指定主题的商品', module='商品')
+@group_required
 def get_products_by_theme(tid):
     start, count = paginate()
     q = request.args.get('q', None)
@@ -51,6 +57,7 @@ def get_products_by_theme(tid):
 
 
 @product_api.route('/paginate', methods=['GET'])
+@route_meta(auth='分页查询所有商品', module='商品')
 def get_paginate():
     start, count = paginate()
     q = request.args.get('q', None)
@@ -74,6 +81,8 @@ def products_with_themes(products):
 
 
 @product_api.route('', methods=['POST'])
+@route_meta(auth='创建商品', module='商品')
+@group_required
 def create():
     form = ProductContent().validate_for_api()
     props = validate_product_props()
@@ -95,6 +104,8 @@ def create():
 
 
 @product_api.route('/<int:pid>', methods=['PUT'])
+@route_meta(auth='编辑商品', module='商品')
+@group_required
 def update(pid):
     form = ProductContent().validate_for_api()
     props = validate_product_props()
@@ -110,18 +121,24 @@ def update(pid):
 
 
 @product_api.route('/<int:pid>', methods=['DELETE'])
+@route_meta(auth='删除商品', module='商品')
+@group_required
 def delete(pid):
     Product.remove_model(pid, throw=True)
     return Success('商品删除成功')
 
 
 @product_api.route('/hide/<int:pid>', methods=['PUT'])
+@route_meta(auth='隐藏商品', module='商品')
+@group_required
 def hide(pid):
     Product.hide_model(pid, throw=True)
     return Success('商品隐藏成功')
 
 
 @product_api.route('/show/<int:pid>', methods=['PUT'])
+@route_meta(auth='显示商品', module='商品')
+@group_required
 def show(pid):
     Product.show_model(pid, throw=True)
     return Success('商品显示成功')
