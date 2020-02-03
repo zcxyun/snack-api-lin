@@ -94,7 +94,7 @@ class OrderService:
         return {
             'order_no': order.order_no,
             'order_id': order.id,
-            'create_time': order.create_time
+            'create_time': order.create_time_str
         }
 
     @staticmethod
@@ -149,7 +149,7 @@ class OrderService:
             Order.order_status == OrderStatus.UNDELIVERED.value
         ).first()
         if not order:
-            raise NotFound(msg='订单不存在或订单不是待发货状态')
+            raise NotFound(msg='订单不是待发货状态')
         order.update(order_status=OrderStatus.UNRECEIPTED.value, commit=True)
         return True
 

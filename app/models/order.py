@@ -32,7 +32,7 @@ class Order(Base):
     def _set_fields(self):
         self._fields = ['id', 'order_no', 'total_price_str', 'old_total_price_str', 'total_count',
                         'order_status', 'order_status_desc', 'deadline_str',
-                        'snap_img', 'snap_name', 'snap_products', 'snap_address',  'create_time_str']
+                        'snap_img', 'snap_name', 'snap_products', 'snap_address', 'create_time_str']
 
     @property
     def total_price_str(self):
@@ -60,6 +60,11 @@ class Order(Base):
 
     @property
     def order_status_desc(self):
+        status_map = self.get_status_map()
+        return status_map.get(self.order_status_enum, '未设置订单状态文字描述信息')
+
+    @classmethod
+    def get_status_map(cls):
         status_map = {
             OrderStatus.UNPAID: '待付款',
             OrderStatus.UNDELIVERED: '待发货',
@@ -68,7 +73,7 @@ class Order(Base):
             OrderStatus.CANCEL: '已取消',
             # OrderStatus.PAID_BUT_INSUFFICIENT_STOCK: '已支付, 但库存不足'
         }
-        return status_map.get(self.order_status_enum, '未设置订单状态文字描述信息')
+        return status_map
 
     # @property
     # def order_number(self):
@@ -109,11 +114,19 @@ class Order(Base):
         }
 
     @classmethod
-    def get_paginate_with_member(cls, start, count, q, soft=True, *, throw=False):
+    def get_paginate_with_member(cls, start, count, q=None, order_status=None, date_start=None, date_end=None, soft=True, *, throw=False):
         statement = db.session.query(cls, Member).filter_by(soft=soft).filter(cls.member_id == Member.id)
         if q:
             q = '%{}%'.format(q)
             statement = statement.filter(cls.order_no.ilike(q))
+        if order_status is not None:
+            order_status = cls.validate_order_status(order_status)
+            statement = statement.filter_by(order_status=order_status)
+        if date_start and date_end:
+            statement = statement.filter(
+                cls._create_time >= date_start,
+                cls._create_time <= date_end
+            )
         total = statement.count()
         res = statement.order_by(cls.id.desc()).offset(start).limit(count).all()
         if not res:
@@ -139,9 +152,10 @@ class Order(Base):
 
     @classmethod
     def _combine_single_data(cls, order, member):
-        order.member = member.nickName
+        order.member_id = member.id
+        order.member_name = member.nickName
         order.member_avatarurl = member.avatarUrl
-        order._fields.extend(['member', 'member_avatarurl'])
+        order._fields.extend(['member_id', 'member_name', 'member_avatarurl'])
         return order
 
     @classmethod

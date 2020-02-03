@@ -60,6 +60,8 @@ class BannerItem(Base):
                 cls.banner_id == Banner.id,
                 cls.img_id == File.id
             )
+            if q:
+                raise ParameterException(msg='无导向不支持搜索')
         elif type_enum == BannerItemType.PRODUCT:
             statement = db.session.query(cls, Product, Banner, File).filter(
                 cls.content_id == Product.id,
@@ -110,8 +112,9 @@ class BannerItem(Base):
     @classmethod
     def _combine_unknown_single_data(cls, model, banner, file):
         model.banner = banner.name
+        model.content = ''
         model.image = cls.get_file_url(file.path)
-        model._fields.extend(['banner', 'image'])
+        model._fields.extend(['content', 'banner', 'image'])
         return model
 
     @classmethod

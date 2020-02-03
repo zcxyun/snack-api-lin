@@ -1,10 +1,10 @@
 from enum import Enum
 
 
-class GenderEnum(Enum):
-    UNKNOWN = 0
-    MALE = 1
-    FEMALE = 2
+# class GenderEnum(Enum):
+#     UNKNOWN = 0
+#     MALE = 1
+#     FEMALE = 2
 
 
 class BannerItemType(Enum):
@@ -27,8 +27,8 @@ class OrderStatus(Enum):
     # PAID_BUT_INSUFFICIENT_STOCK = -2
 
 
-class LoginMethod(Enum):
-    WECHAT = 1
-    ALIPAY = 2
-    MOBILE = 3
-    SMS = 4
+# class LoginMethod(Enum):
+#     WECHAT = 1
+#     ALIPAY = 2
+#     MOBILE = 3
+#     SMS = 4
