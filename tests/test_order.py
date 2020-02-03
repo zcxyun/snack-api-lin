@@ -41,14 +41,21 @@ app = create_app(environment='development')
 #         pprint(json_data)
 #         assert rv.status_code == 201
 
-def test_get_paginate():
+def test_get_order():
     with app.test_client() as c:
-        # rv = c.get('/v1/order/paginate?start=0&count=10')
-        rv = c.get('/cms/order/paginate?start=0&count=10')
+        rv = c.get('/cms/order/get/21')
         json_data = rv.get_json()
         pprint(json_data)
         assert rv.status_code == 200
-#
+
+# def test_get_paginate():
+#     with app.test_client() as c:
+#         # rv = c.get('/v1/order/paginate?start=0&count=10')
+#         rv = c.get('/cms/order/paginate?start=0&count=10')
+#         json_data = rv.get_json()
+#         pprint(json_data)
+#         assert rv.status_code == 200
+# #
 #
 # def test_get_paginate_by_status():
 #     with app.test_client() as c:

@@ -61,8 +61,8 @@ class Stat:
             Order.order_status != OrderStatus.CANCEL.value,
             Order._create_time >= self.date_from,
             Order._create_time <= self.date_to
-        ).scalar()
-        if res is None:
+        ).first()
+        if res[0] is None and res[1] is None:
             return [Decimal('0.00'), 0]
         return res
 
@@ -73,8 +73,8 @@ class Stat:
             Order.order_status != OrderStatus.UNPAID.value,
             Order.order_status != OrderStatus.CANCEL.value,
             Order._create_time <= self.date_to
-        ).scalar()
-        if res is None:
+        ).first()
+        if res[0] is None and res[1] is None:
             return [Decimal('0.00'), 0]
         return res
 
