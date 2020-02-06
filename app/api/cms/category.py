@@ -37,7 +37,6 @@ def get_all():
 @route_meta(auth='查询所有分类及其下商品', module='分类')
 @group_required
 def get_all_with_products():
-    """待用"""
     models = Category.get_all_with_products(throw=True)
     # res = []
     # for model in models:

@@ -67,7 +67,8 @@ class OrderService:
 
     def _get_product_status(self, product, o_product):
         total_price = (o_product.price * product['count']).quantize(Decimal('0.00'))
-        old_total_price = (o_product.old_price * product['count']).quantize(Decimal('0.00'))
+        old_price = o_product.old_price if o_product.old_price else o_product.price
+        old_total_price = (old_price * product['count']).quantize(Decimal('0.00'))
         p_status = dict()
         p_status['id'] = o_product.id
         p_status['name'] = o_product.name

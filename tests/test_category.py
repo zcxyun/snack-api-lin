@@ -31,19 +31,19 @@ app = create_app(environment='development')
 #         assert rv.status_code == 200
 #
 #
-# def test_get_all_with_products():
-#     with app.test_client() as c:
-#         rv = c.get('/cms/category/all/products')
-#         json_data = rv.get_json()
-#         pprint(json_data)
-#         assert rv.status_code == 200
-
-def test_get_all_with_mini_img():
+def test_get_all_with_products():
     with app.test_client() as c:
-        rv = c.get('/v1/category/all/with/mini_img')
+        rv = c.get('/cms/category/all/products')
         json_data = rv.get_json()
         pprint(json_data)
         assert rv.status_code == 200
+
+# def test_get_all_with_mini_img():
+#     with app.test_client() as c:
+#         rv = c.get('/v1/category/all/with/mini_img')
+#         json_data = rv.get_json()
+#         pprint(json_data)
+#         assert rv.status_code == 200
 
 # def test_get_paginate():
 #     with app.test_client() as c:
