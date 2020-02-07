@@ -45,7 +45,7 @@ class ProductionConfig(BaseConfig):
     生产环境普通配置
     """
     DEBUG = False
-    SITE_DOMAIN = "http://111.229.111.15:8081"
+    SITE_DOMAIN = "https://7yue.site"
 
     # 令牌配置
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=1)

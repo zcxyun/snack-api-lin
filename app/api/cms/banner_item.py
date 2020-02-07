@@ -37,7 +37,7 @@ def get_paginate():
     q = request.args.get('q', None)
     res = BannerItem.get_paginate_models(start, count, q, content_type, soft=False, throw=True)
     for model in res['models']:
-        model._fields = ['image', 'banner', 'type_desc', 'content', 'id']
+        model._fields = ['image', 'banner', 'type_desc', 'content', 'id', 'delete_time']
     return jsonify(res)
 
 
